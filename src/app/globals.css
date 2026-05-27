@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-linen: #f9f6f0;
+  --color-forest: #1e3f20;
+  --color-mango: #eaa824;
+  --color-forest-light: #2a5a2e;
+  --color-linen-dark: #ede8df;
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-linen text-forest antialiased;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-mango/30 text-forest;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-linen/60 backdrop-blur-xl border border-white/20;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-mango to-[#f5c842] bg-clip-text text-transparent;
+  }
+}
