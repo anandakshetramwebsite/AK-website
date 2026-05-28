@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getSiteContent } from "@/lib/cms/storage";
+import SocialLinks from "@/components/SocialLinks";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export default async function SiteFooter() {
@@ -38,6 +39,11 @@ export default async function SiteFooter() {
             WhatsApp: {content.contact.phone}
           </a>
           <p className="mt-2 text-sm text-gold-mist/80">{content.contact.mapsNote}</p>
+          <p className="mt-5 text-xs uppercase tracking-[0.2em] text-brand-gold">Follow Us</p>
+          <SocialLinks
+            media={content.media}
+            className="mt-2 [&_a]:border-gold-mist/30 [&_a]:bg-midnight-crimson [&_a]:text-gold-mist [&_a]:hover:border-brand-gold [&_a]:hover:text-brand-gold"
+          />
           <Link href="/admin" className="mt-4 inline-block text-xs text-gold-mist/50 hover:text-gold-mist">
             Admin
           </Link>

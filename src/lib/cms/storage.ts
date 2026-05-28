@@ -50,6 +50,22 @@ export async function getSiteContent(): Promise<SiteContent> {
     contact: { ...DEFAULT_SITE_CONTENT.contact, ...saved.contact },
     header: { ...DEFAULT_SITE_CONTENT.header, ...saved.header },
     footer: { ...DEFAULT_SITE_CONTENT.footer, ...saved.footer },
+    media: {
+      ...DEFAULT_SITE_CONTENT.media,
+      ...saved.media,
+      instagram: {
+        ...DEFAULT_SITE_CONTENT.media.instagram,
+        ...saved.media?.instagram,
+      },
+      social: {
+        ...DEFAULT_SITE_CONTENT.media.social,
+        ...saved.media?.social,
+      },
+      youtubeVideos:
+        saved.media?.youtubeVideos?.length
+          ? saved.media.youtubeVideos
+          : DEFAULT_SITE_CONTENT.media.youtubeVideos,
+    },
     homepage: {
       ...DEFAULT_SITE_CONTENT.homepage,
       ...saved.homepage,

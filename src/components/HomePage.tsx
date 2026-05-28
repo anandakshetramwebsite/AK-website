@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { SiteContent } from "@/lib/cms/types";
+import MediaShowcase from "@/components/MediaShowcase";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 type Props = { content: SiteContent };
@@ -252,14 +253,7 @@ export default function HomePage({ content }: Props) {
           </div>
         </section>
 
-        <section className="brand-section-spacing bg-warm-cream">
-          <div className="brand-container">
-            <h2 className="font-serif text-3xl text-brand-crimson md:text-5xl">
-              {h.instagram.headline}
-            </h2>
-            <p className="mt-3 text-midnight-crimson/80">{h.instagram.note}</p>
-          </div>
-        </section>
+        <MediaShowcase media={content.media} variant="crimson" />
 
         <section className="brand-section-spacing bg-ivory">
           <div className="brand-container">

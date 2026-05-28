@@ -37,6 +37,22 @@ export type SiteContent = {
     tagline: string;
     description: string;
   };
+  media: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    youtubeVideos: { id: string; title: string }[];
+    instagram: {
+      headline: string;
+      note: string;
+      reelUrl: string;
+    };
+    social: {
+      youtubeChannel: string;
+      instagram: string;
+      linkedin: string;
+      facebook: string;
+    };
+  };
   homepage: {
     hero: {
       tagline: string;

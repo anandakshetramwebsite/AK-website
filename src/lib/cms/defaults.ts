@@ -54,6 +54,33 @@ export const DEFAULT_SITE_CONTENT: SiteContent = {
     description:
       "Hyderabad's peaceful, pure-vegetarian nature escape for families, schools, corporates, and communities.",
   },
+  media: {
+    sectionTitle: "See Ananda. Feel Ananda.",
+    sectionSubtitle:
+      "Real farm moments from families, schools, and teams — watch our stories and follow us for daily joy from the fields.",
+    youtubeVideos: [
+      {
+        id: "GMEZvjBJH4I",
+        title: "Ananda Kshethram — Farm Experience Highlights",
+      },
+      {
+        id: "vkNjAIvCSZo",
+        title: "Guest Stories at Ananda Kshethram",
+      },
+    ],
+    instagram: {
+      headline: "Real Moments. Real Smiles. Real Ananda.",
+      note: "Follow us on Instagram for live updates from the farm.",
+      reelUrl: "https://www.instagram.com/reel/DLHB_VGyJ_E/",
+    },
+    social: {
+      youtubeChannel: "https://www.youtube.com/@anandakshethram",
+      instagram: "https://www.instagram.com/anandakshethram/",
+      linkedin:
+        "https://www.linkedin.com/company/ananda-kshethram-agri-farm-retreats/",
+      facebook: "https://www.facebook.com/share/18jj2KjyNQ/",
+    },
+  },
   homepage: {
     hero: {
       tagline: "Reconnect With Life",
