@@ -1,13 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-linen: #f9f6f0;
-  --color-forest: #1e3f20;
-  --color-mango: #eaa824;
-  --color-forest-light: #2a5a2e;
-  --color-linen-dark: #ede8df;
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-inter);
+  --color-midnight-crimson: #3a0808;
+  --color-deep-crimson: #5e0f0f;
+  --color-brand-crimson: #7b1515;
+  --color-brand-gold: #c9941a;
+  --color-warm-gold: #e8b84b;
+  --color-gold-mist: #f5e6c0;
+  --color-forest-green: #1c3a14;
+  --color-warm-cream: #fbf6ee;
+  --color-ivory: #fefcf8;
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-dm-sans);
 }
 
 @layer base {
@@ -16,21 +20,25 @@
   }
 
   body {
-    @apply bg-linen text-forest antialiased;
-    font-family: var(--font-inter), system-ui, sans-serif;
+    @apply bg-warm-cream text-midnight-crimson antialiased;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
   }
 
   ::selection {
-    @apply bg-mango/30 text-forest;
+    @apply bg-brand-gold/30 text-midnight-crimson;
   }
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-linen/60 backdrop-blur-xl border border-white/20;
+  .brand-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-mango to-[#f5c842] bg-clip-text text-transparent;
+  .brand-section-spacing {
+    @apply py-16 md:py-24;
+  }
+
+  .brand-button {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all;
   }
 }

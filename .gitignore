@@ -18,6 +18,11 @@
 # production
 /build
 
+# cms runtime data
+/data/admin.json
+/data/bookings.json
+/data/events.json
+
 # misc
 .DS_Store
 *.pem

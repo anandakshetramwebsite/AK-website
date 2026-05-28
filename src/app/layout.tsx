@@ -1,40 +1,29 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
-import { BookingProvider } from "@/context/BookingContext";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { getSiteContent } from "@/lib/cms/storage";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-cormorant",
   display: "swap",
 });
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Ananda Kshethram | Hyderabad's Premier Vegetarian Farm Retreat",
-  description:
-    "Farm retreats, village games, corporate retreats, events, photoshoots & more. Hyderabad's only 100% pure vegetarian farm sanctuary.",
-  keywords: [
-    "Ananda Kshethram",
-    "farm retreat Hyderabad",
-    "corporate retreat",
-    "school trip",
-    "family outing",
-    "vegetarian farm",
-    "mango festival",
-  ],
-  openGraph: {
-    title: "Ananda Kshethram",
-    description:
-      "Hyderabad's Premier Sanctuary for Corporate Retreats, Family Outings & School Trips",
-    type: "website",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent();
+  return {
+    title: content.seo.title,
+    description: content.seo.description,
+    keywords: content.seo.keywords,
+    applicationName: content.header.siteName,
+  };
+}
 
 export default function RootLayout({
   children,
@@ -42,10 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="min-h-screen">
-        <BookingProvider>{children}</BookingProvider>
-      </body>
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
+      <body className="min-h-screen">{children}</body>
     </html>
   );
 }
