@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { MAPS_URL, YOUTUBE_URL, MANGO_FESTIVAL_FORM } from "@/lib/constants";
 import { SOCIAL_LINKS } from "@/lib/social";
-
-const AI_DEVELOPER_URL = "https://aideveloperindia.store";
+import BuiltByCredit from "@/components/BuiltByCredit";
 
 export default function Footer() {
   return (
@@ -109,32 +107,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-linen/10 pt-8 text-center text-xs text-linen/50">
-          © {new Date().getFullYear()} Ananda Kshethram. All rights reserved.
-        </div>
-      </div>
-
-      {/* Built by credit — bottom of landing page */}
-      <div className="border-t border-linen/10 bg-linen py-6">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-6 sm:flex-row sm:gap-4">
-          <span className="text-sm font-medium text-forest/70">Built by</span>
-          <a
-            href={AI_DEVELOPER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 transition-opacity hover:opacity-80"
-            aria-label="AI Developer India — visit aideveloperindia.store"
-          >
-            <Image
-              src="/ai-developer-logo.png"
-              alt="AI Developer Logo"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain"
-            />
-            <span className="font-semibold text-forest group-hover:text-mango transition-colors">
-              AI Developer India
-            </span>
-          </a>
+          <p>© {new Date().getFullYear()} Ananda Kshethram. All rights reserved.</p>
+          <BuiltByCredit tone="light" />
         </div>
       </div>
     </footer>

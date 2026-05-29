@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import BuiltByCredit from "@/components/BuiltByCredit";
 
 export const metadata: Metadata = {
   title: "Ananda Kshethram — Choose Website Version",
@@ -18,11 +19,12 @@ export default function VersionChooserPage() {
           Choose a Website Version
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-midnight-crimson/80">
-          Review both designs and pick the direction you prefer. Version 1 is the
-          cinematic original. Version 2 follows today&apos;s client brief with
-          crimson-gold branding and full content.
+          Review all three designs and pick the direction you prefer. Version 3
+          matches the client&apos;s shared homepage with exact copy. Version 1 is
+          the cinematic original. Version 2 follows the expanded site brief with
+          CMS and sub-pages.
         </p>
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
           <Link
             href="/version-1"
             className="rounded-2xl border border-brand-crimson/20 bg-ivory p-6 text-left transition hover:border-brand-gold hover:shadow-lg"
@@ -45,8 +47,25 @@ export default function VersionChooserPage() {
               booking flow.
             </p>
           </Link>
+          <Link
+            href="/version-3"
+            className="rounded-2xl border-2 border-brand-gold bg-ivory p-6 text-left shadow-md transition hover:border-brand-crimson hover:shadow-lg"
+          >
+            <p className="text-xs uppercase tracking-widest text-brand-gold">Version 3 · New</p>
+            <h2 className="mt-2 font-serif text-3xl text-brand-crimson">Client Homepage</h2>
+            <p className="mt-2 text-sm text-midnight-crimson/70">
+              Exact client HTML content — hero tiles, pricing, school trust, FAQ,
+              Instagram, and polished interactions.
+            </p>
+          </Link>
         </div>
       </div>
+      <footer className="mx-auto mt-16 max-w-4xl border-t border-brand-crimson/15 pt-6 text-center">
+        <p className="text-xs text-midnight-crimson/60">
+          © {new Date().getFullYear()} Ananda Kshethram. All rights reserved.
+        </p>
+        <BuiltByCredit tone="cream" />
+      </footer>
     </main>
   );
 }

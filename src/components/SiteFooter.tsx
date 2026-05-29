@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getSiteContent } from "@/lib/cms/storage";
 import SocialLinks from "@/components/SocialLinks";
+import BuiltByCredit from "@/components/BuiltByCredit";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export default async function SiteFooter() {
@@ -49,9 +50,12 @@ export default async function SiteFooter() {
           </Link>
         </div>
       </div>
-      <p className="brand-container mt-10 border-t border-gold-mist/15 pt-5 text-xs text-gold-mist/70">
-        © {new Date().getFullYear()} {content.header.siteName}. All rights reserved.
-      </p>
+      <div className="brand-container mt-10 border-t border-gold-mist/15 pt-5 text-center">
+        <p className="text-xs text-gold-mist/70">
+          © {new Date().getFullYear()} {content.header.siteName}. All rights reserved.
+        </p>
+        <BuiltByCredit tone="dark" />
+      </div>
     </footer>
   );
 }

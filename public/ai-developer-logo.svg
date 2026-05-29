@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="AI Developer India">
+  <defs>
+    <linearGradient id="adiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="url(#adiGrad)"/>
+  <text x="60" y="52" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="28" font-weight="700">ADI</text>
+  <text x="60" y="78" text-anchor="middle" fill="#e0e7ff" font-family="system-ui,sans-serif" font-size="11" font-weight="600">AI DEV</text>
+</svg>
