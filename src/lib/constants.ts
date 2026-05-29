@@ -29,7 +29,7 @@ export const WHATSAPP_PHONE = "917799900060";
 export const MAPS_URL =
   "https://maps.app.goo.gl/FE6nhgHTa7P2j6d39";
 
-export const YOUTUBE_URL = "https://www.youtube.com/@AnandaKshethram";
+export const YOUTUBE_URL = "https://www.youtube.com/@anandakshethram";
 
 export const MANGO_FESTIVAL_FORM =
   "https://docs.google.com/forms/d/e/1FAIpQLScaYXPm39s48-8-fDBF5d-JzMO742TQwTGk9iY004GuekmhRg/viewform";

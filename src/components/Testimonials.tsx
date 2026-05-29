@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TESTIMONIALS } from "@/lib/constants";
+import { TESTIMONIALS, YOUTUBE_URL } from "@/lib/constants";
+import { YOUTUBE_VIDEOS } from "@/lib/social";
+import YouTubeEmbed from "@/components/YouTubeEmbed";
 
 const TYPE_ICONS = {
   corporate: "🏢",
@@ -34,39 +36,22 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        <div className="relative mx-auto max-w-4xl">
-          {/* Video placeholder */}
-          <div className="mb-10 overflow-hidden rounded-2xl border-2 border-forest/10 shadow-xl">
-            <div className="relative aspect-video bg-forest/5">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <a
-                  href="https://www.youtube.com/@AnandaKshethram"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-20 w-20 items-center justify-center rounded-full bg-mango shadow-2xl transition-transform hover:scale-110"
-                >
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="#1E3F20"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </a>
-              </div>
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-30"
-                style={{
-                  backgroundImage:
-                    "url(https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1200&q=80)",
-                }}
-              />
-              <p className="absolute bottom-4 left-4 text-sm font-medium text-forest/70">
-                Watch guest stories on our YouTube channel →
-              </p>
-            </div>
+        <div className="relative mx-auto max-w-5xl">
+          <div className="mb-10 grid gap-6 md:grid-cols-2">
+            {YOUTUBE_VIDEOS.map((video) => (
+              <YouTubeEmbed key={video.id} videoId={video.id} title={video.title} />
+            ))}
           </div>
+          <p className="mb-10 text-center text-sm text-forest/70">
+            <a
+              href={YOUTUBE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-forest hover:text-mango"
+            >
+              Subscribe on YouTube @anandakshethram →
+            </a>
+          </p>
 
           {/* Testimonial slider */}
           <div className="relative rounded-2xl border border-forest/10 bg-white/50 p-8 backdrop-blur-sm md:p-12">

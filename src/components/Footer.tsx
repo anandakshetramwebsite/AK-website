@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MAPS_URL, YOUTUBE_URL, MANGO_FESTIVAL_FORM } from "@/lib/constants";
+import { SOCIAL_LINKS } from "@/lib/social";
 
 const AI_DEVELOPER_URL = "https://aideveloperindia.store";
 
@@ -60,6 +61,21 @@ export default function Footer() {
                   className="transition-colors hover:text-mango"
                 >
                   Get Directions
+                </a>
+              </li>
+              <li>
+                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-mango">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-mango">
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-mango">
+                  Facebook
                 </a>
               </li>
             </ul>

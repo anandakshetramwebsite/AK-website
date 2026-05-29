@@ -7,9 +7,14 @@ import SocialLinks from "@/components/SocialLinks";
 type Props = {
   media: SiteContent["media"];
   variant?: "crimson" | "forest";
+  hideVideos?: boolean;
 };
 
-export default function MediaShowcase({ media, variant = "crimson" }: Props) {
+export default function MediaShowcase({
+  media,
+  variant = "crimson",
+  hideVideos = false,
+}: Props) {
   const isForest = variant === "forest";
 
   return (
@@ -52,13 +57,15 @@ export default function MediaShowcase({ media, variant = "crimson" }: Props) {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {media.youtubeVideos.map((video) => (
-            <YouTubeEmbed key={video.id} videoId={video.id} title={video.title} />
-          ))}
-        </div>
+        {!hideVideos && (
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {media.youtubeVideos.map((video) => (
+              <YouTubeEmbed key={video.id} videoId={video.id} title={video.title} />
+            ))}
+          </div>
+        )}
 
-        <div className="mt-12">
+        <div className={hideVideos ? "mt-6" : "mt-12"}>
           <h3
             className={
               isForest
