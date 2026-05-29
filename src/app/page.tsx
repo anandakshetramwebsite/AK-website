@@ -46,12 +46,6 @@ export default function VersionChooserPage() {
             </p>
           </Link>
         </div>
-        <p className="mt-10 text-sm text-midnight-crimson/50">
-          Admin panel:{" "}
-          <Link href="/admin" className="underline hover:text-brand-gold">
-            /admin
-          </Link>
-        </p>
       </div>
     </main>
   );
