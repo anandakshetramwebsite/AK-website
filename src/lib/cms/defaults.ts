@@ -38,15 +38,11 @@ export const DEFAULT_SITE_CONTENT: SiteContent = {
   header: {
     siteName: "Ananda Kshethram",
     nav: [
-      { href: "/", label: "Home" },
-      { href: "/about-ak", label: "About AK" },
-      { href: "/school-field-trips", label: "School Trips" },
-      { href: "/corporate-retreats", label: "Corporate" },
-      { href: "/family-outings", label: "Families" },
-      { href: "/all-experiences", label: "All Experiences" },
-      { href: "/gallery", label: "Gallery" },
-      { href: "/blog", label: "Blog" },
-      { href: "/contact-book-now", label: "Contact" },
+      { href: "#experiences", label: "Experiences" },
+      { href: "#activities", label: "Activities" },
+      { href: "#goushala", label: "Goushala" },
+      { href: "#programs", label: "Packages" },
+      { href: "#book", label: "Book" },
     ],
   },
   footer: {

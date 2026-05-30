@@ -29,14 +29,9 @@ export default function Testimonials() {
             {TESTIMONIALS.map((t) => (
               <article
                 key={t.id}
-                className="relative rounded-2xl border border-forest/10 bg-white/60 p-5 backdrop-blur-sm sm:p-6"
+                className="rounded-2xl border border-forest/10 bg-white/60 p-5 backdrop-blur-sm sm:p-6"
               >
-                {"duration" in t && t.duration && (
-                  <span className="absolute right-4 top-4 rounded-md bg-midnight-crimson/90 px-2 py-0.5 font-mono text-[10px] font-medium text-ivory">
-                    {t.duration}
-                  </span>
-                )}
-                <p className="font-serif text-base leading-relaxed text-forest sm:pr-10">
+                <p className="font-serif text-base leading-relaxed text-forest">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <footer className="mt-4 border-t border-forest/10 pt-4">

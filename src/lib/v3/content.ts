@@ -146,6 +146,31 @@ export const v3Experiences = [
     short: "Where textbooks become real.",
     desc: "Where textbooks become real. Science, EVS, social studies — every subject comes alive on our agri tourism farm. NEP 2020 aligned.",
   },
+  {
+    name: "Farm Train Ride",
+    short: "A ride through orchards & fields.",
+    desc: "A joyful farm train ride through orchards and fields — a favourite for children, families, and school groups alike.",
+  },
+  {
+    name: "Village Pond",
+    short: "Water, mud & village play.",
+    desc: "Farm pool and village pond experiences — cold water, warm earth, and the kind of play that city life forgot.",
+  },
+  {
+    name: "Box Cricket",
+    short: "Farm tournaments for all ages.",
+    desc: "Friendly cricket matches in our farm arena — perfect for families, schools, and corporate team outings.",
+  },
+  {
+    name: "Campfire Experiences",
+    short: "Stories under open skies.",
+    desc: "Bonfire evenings with songs, stories, and starlight. A fire that doesn't need wi-fi — included in night stay packages.",
+  },
+  {
+    name: "Seasonal Festivals",
+    short: "Harvest · Mango · Sankranti.",
+    desc: "Farm festivals, harvest celebrations, and seasonal experiences that change with the land — from Mango Festival to Sankranti.",
+  },
 ];
 
 export const v3Stats = [

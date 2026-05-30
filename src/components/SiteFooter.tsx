@@ -1,7 +1,8 @@
-import Link from "next/link";
 import { getSiteContent } from "@/lib/cms/storage";
+import { FOOTER_NAV } from "@/lib/single-page-nav";
 import SocialLinks from "@/components/SocialLinks";
 import BuiltByCredit from "@/components/BuiltByCredit";
+
 export default async function SiteFooter() {
   const content = await getSiteContent();
 
@@ -17,11 +18,11 @@ export default async function SiteFooter() {
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-brand-gold">Explore</p>
           <ul className="mt-3 space-y-2">
-            {content.header.nav.slice(1, 7).map((link) => (
+            {FOOTER_NAV.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-sm hover:text-warm-gold">
+                <a href={link.href} className="text-sm hover:text-warm-gold">
                   {link.label}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -34,15 +35,11 @@ export default async function SiteFooter() {
           >
             {content.contact.phone}
           </a>
-          <p className="mt-2 text-sm text-gold-mist/80">{content.contact.mapsNote}</p>
           <p className="mt-5 text-xs uppercase tracking-[0.2em] text-brand-gold">Follow Us</p>
           <SocialLinks
             media={content.media}
             className="mt-2 [&_a]:border-gold-mist/30 [&_a]:bg-midnight-crimson [&_a]:text-gold-mist [&_a]:hover:border-brand-gold [&_a]:hover:text-brand-gold"
           />
-          <Link href="/admin" className="mt-4 inline-block text-xs text-gold-mist/50 hover:text-gold-mist">
-            Admin
-          </Link>
         </div>
       </div>
       <div className="brand-container mt-10 border-t border-gold-mist/15 pt-5 text-center">

@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { BRAND_LOGO, HERO_TRUST_STATS, HERO_VIDEO_URL } from "@/lib/constants";
+import { HERO_TRUST_STATS, HERO_VIDEO_URL, HERO_KEYWORDS, MAPS_URL, FARM_LOCATION } from "@/lib/constants";
 import HeroMangoFestivalPromo from "@/components/HeroMangoFestivalPromo";
 
 const LEAVES = [
@@ -53,7 +52,7 @@ export default function CinematicHero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100dvh] min-h-[600px] w-full overflow-hidden">
+    <section id="top" className="relative min-h-[100dvh] min-h-[600px] w-full overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <video
           ref={videoRef}
@@ -67,7 +66,9 @@ export default function CinematicHero() {
         >
           <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight-crimson/75 via-deep-crimson/45 to-midnight-crimson/85 lg:from-midnight-crimson/55 lg:via-deep-crimson/35 lg:to-midnight-crimson/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight-crimson/80 via-midnight-crimson/50 to-midnight-crimson/85" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_45%,rgba(58,8,8,0.72)_0%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight-crimson/90 via-transparent to-forest-green/30" />
       </div>
 
       {parallaxEnabled &&
@@ -111,54 +112,104 @@ export default function CinematicHero() {
       <div className="relative z-20 flex min-h-[100dvh] min-h-[600px] flex-col">
         <HeroMangoFestivalPromo />
 
-        <div className="flex flex-1 flex-col items-center justify-center px-4 py-6 text-center sm:px-6">
+        <div className="flex flex-1 flex-col items-center justify-center px-4 pb-4 pt-20 text-center sm:px-6 sm:pt-24">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
-            className="w-full max-w-4xl"
+            className="w-full max-w-3xl"
           >
-            <Image
-              src={BRAND_LOGO}
-              alt="Ananda Kshethram"
-              width={96}
-              height={96}
-              priority
-              className="mx-auto h-16 w-16 object-contain drop-shadow-lg sm:h-20 sm:w-20 md:h-24 md:w-24"
-            />
+            <div className="mx-auto flex max-w-xl flex-wrap justify-center gap-2">
+              <span className="rounded-full border border-brand-gold/60 bg-brand-gold/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-warm-gold sm:text-[11px]">
+                Hyderabad&apos;s First Agri Tourism Hub
+              </span>
+              <span className="rounded-full border border-ivory/40 bg-forest-green/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-ivory sm:text-[11px]">
+                Hyderabad&apos;s Only Pure Veg Farm Retreat
+              </span>
+            </div>
 
-            <h1 className="mx-auto mt-3 max-w-[18ch] font-serif text-[2.125rem] font-light italic leading-[1.12] tracking-tight text-ivory drop-shadow-lg sm:max-w-4xl sm:text-5xl md:text-6xl lg:text-[3.35rem]">
-              Give Your Child a Childhood
+            <h1
+              className="mx-auto mt-5 max-w-2xl font-serif text-[1.75rem] font-medium italic leading-[1.2] tracking-tight text-ivory sm:text-4xl md:text-[2.75rem]"
+              style={{
+                textShadow:
+                  "0 2px 4px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.45)",
+              }}
+            >
+              Where Nature, Village Life
               <br />
-              <span className="text-warm-gold">Worth Remembering</span>
+              <span className="text-warm-gold">&amp; Meaningful Memories Meet</span>
             </h1>
 
-            <p className="mx-auto mt-4 max-w-md text-[0.65rem] font-medium uppercase leading-relaxed tracking-[0.12em] text-ivory/85 sm:max-w-lg sm:text-xs md:text-sm">
-              India&apos;s most soulful farm experience — just 1 hour from
-              Hyderabad
-            </p>
+            <div className="mx-auto mt-5 flex max-w-2xl flex-wrap justify-center gap-2">
+              {HERO_KEYWORDS.map((kw) => (
+                <span
+                  key={kw}
+                  className="rounded-lg border border-ivory/15 bg-ivory/95 px-3 py-2 text-[11px] font-semibold leading-snug text-forest-green shadow-sm sm:text-xs"
+                >
+                  {kw}
+                </span>
+              ))}
+            </div>
 
-            <p className="mx-auto mt-2 max-w-xs text-[0.6rem] uppercase leading-relaxed tracking-[0.08em] text-ivory/60 sm:max-w-md sm:text-xs">
-              100% pure vegetarian · Chevella, Telangana
+            <p className="mx-auto mt-5 inline-flex max-w-xl flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-brand-gold/45 bg-brand-gold/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-ivory sm:text-xs">
+              <span className="text-warm-gold">100% pure vegetarian</span>
+              <span className="text-ivory/40" aria-hidden>
+                ·
+              </span>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex flex-wrap items-center justify-center gap-x-2 text-ivory transition-colors hover:text-warm-gold"
+                aria-label={`Open ${FARM_LOCATION.line} in Google Maps`}
+              >
+                <span>Chevella</span>
+                <span className="text-ivory/40" aria-hidden>
+                  ·
+                </span>
+                <span>{FARM_LOCATION.note.split(", ")[0]},</span>
+                <span className="inline-flex items-center gap-1.5">
+                  {FARM_LOCATION.note.split(", ")[1]}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-9 w-9 shrink-0 text-warm-gold transition-transform group-hover:scale-105 sm:h-12 sm:w-12"
+                    aria-hidden
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </a>
             </p>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-              className="mt-8 flex w-full max-w-md flex-col gap-3 sm:mx-auto sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4"
+              transition={{ delay: 0.5, duration: 0.7 }}
+              className="mt-6 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
             >
               <a
                 href="#programs"
-                className="touch-target w-full rounded-full bg-brand-gold px-8 py-3.5 text-sm font-semibold text-brand-crimson shadow-xl transition-all active:scale-[0.98] sm:w-auto sm:hover:scale-105 sm:hover:bg-warm-gold"
+                className="touch-target w-full max-w-[11rem] rounded-full bg-brand-gold px-6 py-3 text-sm font-bold text-brand-crimson shadow-xl sm:w-auto"
               >
-                Plan Our Visit
+                Book Your Visit
+              </a>
+              <a
+                href="#experiences"
+                className="touch-target w-full max-w-[11rem] rounded-full border-2 border-ivory/70 bg-midnight-crimson/60 px-6 py-3 text-sm font-semibold text-ivory backdrop-blur-sm sm:w-auto"
+              >
+                Plan Your Outing
               </a>
               <a
                 href="https://wa.me/917799900060"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="touch-target w-full rounded-full border-2 border-ivory/50 px-8 py-3.5 text-sm font-semibold text-ivory backdrop-blur-sm transition-all active:scale-[0.98] sm:w-auto sm:hover:border-brand-gold sm:hover:text-brand-gold"
+                className="touch-target w-full max-w-[11rem] rounded-full border-2 border-ivory/70 bg-midnight-crimson/60 px-6 py-3 text-sm font-semibold text-ivory backdrop-blur-sm sm:w-auto"
               >
                 WhatsApp Us →
               </a>
@@ -170,7 +221,7 @@ export default function CinematicHero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7 }}
-          className="mx-4 mt-auto max-w-3xl rounded-2xl border border-brand-gold/30 bg-midnight-crimson/88 px-4 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md sm:mx-auto sm:px-6 mb-8 sm:mb-10 lg:mb-12"
+          className="mx-4 mb-6 mt-auto max-w-3xl rounded-xl border border-brand-gold/25 bg-midnight-crimson/85 px-4 py-4 backdrop-blur-md sm:mx-auto sm:mb-8 sm:px-5"
         >
           <div className="grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-3 lg:gap-y-0">
             {HERO_TRUST_STATS.map((stat) => (

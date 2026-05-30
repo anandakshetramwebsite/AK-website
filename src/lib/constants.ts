@@ -274,7 +274,6 @@ export const TESTIMONIALS = [
     quote:
       "I haven't seen my son this happy in months. He's already asking when we can come back for another agri tourism day.",
     type: "family" as const,
-    duration: "0:48",
   },
   {
     id: "2",
@@ -283,7 +282,6 @@ export const TESTIMONIALS = [
     quote:
       "Every activity linked to the curriculum. The children didn't realise they were learning. Best agri tourism trip we've done.",
     type: "school" as const,
-    duration: "1:02",
   },
   {
     id: "3",
@@ -292,23 +290,440 @@ export const TESTIMONIALS = [
     quote:
       "My team bonded more in five hours here than in two years of virtual meetings.",
     type: "corporate" as const,
-    duration: "0:55",
   },
 ];
 
 export const HERO_KEYWORDS = [
-  "School Field Trips",
-  "Family Outings",
-  "Corporate Retreats",
+  "Family Day Outings",
   "Farm Night Stays",
+  "Corporate Team Outings",
+  "School Trips",
+  "Summer Camps",
+  "Celebrations",
+  "Community Gatherings",
 ];
 
 export const HERO_TRUST_STATS = [
-  { value: "4.9 ★", label: "Average Rating" },
+  { value: "1st", label: "Agri Tourism Hub · Hyderabad" },
+  { value: "100%", label: "Pure Veg Farm Retreat" },
   { value: "10,000+", label: "Families Welcomed" },
   { value: "500+", label: "School Groups" },
-  { value: "60+", label: "Agri Tourism Activities" },
-  { value: "#1", label: "Agri Tourism Near Hyderabad" },
+  { value: "60+", label: "Village Activities" },
+];
+
+export const PHONE_DISPLAY = "+91 77999 00060";
+export const PHONE_TEL = "tel:+917799900060";
+
+export interface CoreExperience {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: string;
+  href: string;
+  waText: string;
+  audience: "family" | "corporate" | "school" | "community" | "spiritual";
+}
+
+export const CORE_EXPERIENCES: CoreExperience[] = [
+  {
+    id: "family-day",
+    title: "Family Day Outings",
+    subtitle: "Day visit · All inclusive",
+    description:
+      "A full day of village games, goushala, bullock carts, mud bath, and sattvic farm meals — for grandparents, parents, and children together.",
+    icon: "👨‍👩‍👧‍👦",
+    href: "/family-outings",
+    waText: "Hi, I want to plan a family day outing at Ananda Kshethram",
+    audience: "family",
+  },
+  {
+    id: "night-stay",
+    title: "Farm Night Stays",
+    subtitle: "Overnight · Bonfire & stars",
+    description:
+      "Sleep under open skies, enjoy campfire evenings, dawn goushala rituals, and every meal from dinner through breakfast.",
+    icon: "🌙",
+    href: "/night-stay",
+    waText: "Hi, I want to book a farm night stay",
+    audience: "family",
+  },
+  {
+    id: "corporate",
+    title: "Corporate Team Outings",
+    subtitle: "Teams · Startups · Corporates",
+    description:
+      "Village tournaments, farm meals, bonfire add-ons, and custom branding — where teams remember they are human.",
+    icon: "🤝",
+    href: "/corporate-retreats",
+    waText: "Hi, I want a corporate team outing quote",
+    audience: "corporate",
+  },
+  {
+    id: "school",
+    title: "School Trips & Educational Visits",
+    subtitle: "NEP 2020 aligned · 30+ students",
+    description:
+      "Curriculum-linked field trips with dedicated coordinators, supervised zones, certificates, and real soil-under-nails learning.",
+    icon: "🏫",
+    href: "/school-field-trips",
+    waText: "Hi, I want to plan a school trip",
+    audience: "school",
+  },
+  {
+    id: "summer-camp",
+    title: "Life Skills & Summer Camps",
+    subtitle: "Residential · Holiday camps",
+    description:
+      "Multi-day residential camps — dawn to bonfire — building independence, farm skills, and character in nature.",
+    icon: "⛺",
+    href: "/life-skills-bootcamp",
+    waText: "Hi, I want to enroll for summer camp",
+    audience: "school",
+  },
+  {
+    id: "kitty",
+    title: "Kitty Parties",
+    subtitle: "Groups · Celebrations",
+    description:
+      "Mud bath, farm brunch, pottery add-ons, and games your group will photograph all week — a joyfully Indian day away.",
+    icon: "🎀",
+    href: "/kitty-parties",
+    waText: "Hi, I want to plan a kitty party at the farm",
+    audience: "community",
+  },
+  {
+    id: "friends",
+    title: "Friends Reunions",
+    subtitle: "Old friends · New memories",
+    description:
+      "Reconnect over village games, bullock cart rides, and shared sattvic meals — laughter that feels like home.",
+    icon: "👫",
+    href: "/cousins-get-togethers",
+    waText: "Hi, I want to plan a friends reunion at Ananda Kshethram",
+    audience: "community",
+  },
+  {
+    id: "cousins",
+    title: "Cousins Get-Togethers",
+    subtitle: "Family bonds · Farm fun",
+    description:
+      "The cousins outing everyone talks about — mud bath, farm train, village games, and a day worth repeating every year.",
+    icon: "🤗",
+    href: "/cousins-get-togethers",
+    waText: "Hi, I want to plan a cousins get-together at the farm",
+    audience: "community",
+  },
+  {
+    id: "alumni",
+    title: "Alumni Meets",
+    subtitle: "Associations · Reunions",
+    description:
+      "Alumni batches and associations — a peaceful, activity-rich farm venue for meaningful reunions in nature.",
+    icon: "🎓",
+    href: "/alumni-reunions",
+    waText: "Hi, I want to plan an alumni meet at Ananda Kshethram",
+    audience: "community",
+  },
+  {
+    id: "celebrations",
+    title: "Birthday & Anniversary Celebrations",
+    subtitle: "Milestone celebrations",
+    description:
+      "Celebrate milestones in nature — farm activities, private gathering spaces, sattvic meals, and memories that last.",
+    icon: "🎂",
+    href: "/birthdays-celebrations",
+    waText: "Hi, I want to plan a birthday or anniversary celebration",
+    audience: "family",
+  },
+  {
+    id: "community",
+    title: "Community Gatherings",
+    subtitle: "Societies · Groups · Events",
+    description:
+      "From community societies to group celebrations — village activities, pure veg meals, and open skies for all.",
+    icon: "🪷",
+    href: "/alumni-reunions",
+    waText: "Hi, I want to plan a community gathering",
+    audience: "community",
+  },
+];
+
+export interface ActivityHighlight {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: string;
+  featured?: boolean;
+}
+
+export const ACTIVITY_HIGHLIGHTS: ActivityHighlight[] = [
+  {
+    id: "farm-train",
+    title: "Farm Train Ride",
+    subtitle: "A favourite for all ages",
+    description:
+      "A joyful ride through orchards and fields — one of the most photographed moments on the farm.",
+    icon: "🚂",
+    featured: true,
+  },
+  {
+    id: "bullock-cart",
+    title: "Bullock Cart Ride",
+    subtitle: "Slow, swaying, magnificent",
+    description:
+      "The classic village experience — phones disappear, laughter returns, and everyone asks for a second round.",
+    icon: "🐂",
+    featured: true,
+  },
+  {
+    id: "village-pond",
+    title: "Village Pond",
+    subtitle: "Water, mud & pure joy",
+    description:
+      "Farm pool and village pond experiences — cold water, warm earth, and the kind of play city life forgot.",
+    icon: "💧",
+    featured: true,
+  },
+  {
+    id: "mud-bath",
+    title: "Mud Bath",
+    subtitle: "Therapeutic village dirt",
+    description:
+      "The mud bath children never want to leave — natural, playful, and wonderfully messy.",
+    icon: "🌾",
+    featured: true,
+  },
+  {
+    id: "village-games",
+    title: "60+ Village Games",
+    subtitle: "No batteries required",
+    description:
+      "Lagori, gilli-danda, kabaddi, and dozens more — the games your grandparents played, ready for every age.",
+    icon: "🎯",
+    featured: true,
+  },
+  {
+    id: "box-cricket",
+    title: "Box Cricket",
+    subtitle: "Farm tournaments",
+    description:
+      "Friendly cricket matches in our farm arena — perfect for families, schools, and corporate teams.",
+    icon: "🏏",
+  },
+  {
+    id: "nature-walks",
+    title: "Nature Walks",
+    subtitle: "Walk slowly. Notice everything.",
+    description:
+      "Guided trails through orchards, fields, and forest edges with our naturalists.",
+    icon: "🌳",
+  },
+  {
+    id: "campfire",
+    title: "Campfire Experiences",
+    subtitle: "Stories under open skies",
+    description:
+      "Bonfire evenings with songs, stories, and starlight — included in night stay packages.",
+    icon: "🔥",
+  },
+  {
+    id: "goushala",
+    title: "Goushala Experience",
+    subtitle: "Sacred Gir cows",
+    description:
+      "Morning rituals, Gou Puja, Go Seva, and the quiet bond between land, animal, and family.",
+    icon: "🐄",
+    featured: true,
+  },
+  {
+    id: "seasonal",
+    title: "Seasonal Activities & Festivals",
+    subtitle: "Harvest · Mango · Sankranti",
+    description:
+      "Farm festivals, harvest celebrations, and seasonal experiences that change with the land.",
+    icon: "🥭",
+  },
+];
+
+export const BRAND_VALUES = [
+  "Nature",
+  "Village Life",
+  "Agri Tourism",
+  "Family Bonding",
+  "Learning",
+  "Celebrations",
+  "Spirituality",
+  "Meaningful Experiences",
+] as const;
+
+export const GOUSHALA_HIGHLIGHTS = [
+  "Desi Gir Cows",
+  "Goushala Experience",
+  "Go Seva",
+  "Rural Heritage",
+  "Traditional Values",
+] as const;
+
+export const DIVINE_EVENTS = [
+  "Weddings",
+  "Chandi Homams",
+  "Upanayanams",
+  "Shasti Poorthi Celebrations",
+  "Spiritual Gatherings & Pujas",
+] as const;
+
+export interface DedicatedSection {
+  id: string;
+  anchor: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  benefits: string[];
+  inclusions: string[];
+  galleryLabels: [string, string, string];
+  testimonial: { quote: string; attr: string };
+  href: string;
+  waText: string;
+}
+
+export const DEDICATED_SECTIONS: DedicatedSection[] = [
+  {
+    id: "family",
+    anchor: "family-outings",
+    eyebrow: "Family Day Outings",
+    title: "A Full Day of Village Joy for Every Generation",
+    description:
+      "Grandparents, parents, and children together — bullock carts, goushala, mud bath, 60+ village games, and a sattvic farm lunch included.",
+    benefits: [
+      "Bonding across all ages in nature",
+      "Screen-free, activity-driven day",
+      "100% pure vegetarian farm meals",
+    ],
+    inclusions: [
+      "60+ agri tourism activities",
+      "Sattvic farm lunch",
+      "Goushala visit & Gou Puja",
+      "Bullock cart & farm train rides",
+    ],
+    galleryLabels: ["Real Families", "Real Activities", "Real Farm Meals"],
+    testimonial: {
+      quote:
+        "I haven't seen my son this happy in months. He's already asking when we can come back.",
+      attr: "Priya Sharma · Mother, Hyderabad",
+    },
+    href: "/family-outings",
+    waText: "Hi, I want to plan a family day outing at Ananda Kshethram",
+  },
+  {
+    id: "night-stay",
+    anchor: "night-stays",
+    eyebrow: "Farm Night Stays",
+    title: "Sleep Under Skies Your City Has Forgotten",
+    description:
+      "Overnight farm stay with bonfire evenings, dawn goushala rituals, nature trails, and every meal from dinner through breakfast.",
+    benefits: [
+      "Complete escape from city routine",
+      "Campfire & starlight experiences",
+      "Deeper connection with village life",
+    ],
+    inclusions: [
+      "All-day farm activities",
+      "Bonfire night under open skies",
+      "Farm stay accommodation",
+      "Dinner, breakfast & meals included",
+    ],
+    galleryLabels: ["Bonfire Nights", "Farm Stay", "Dawn at the Goushala"],
+    testimonial: {
+      quote:
+        "Milky Way overhead. Bonfire below. The kind of night families remember for years.",
+      attr: "Family guest · Hyderabad",
+    },
+    href: "/night-stay",
+    waText: "Hi, I want to book a farm night stay",
+  },
+  {
+    id: "corporate",
+    anchor: "corporate-outings",
+    eyebrow: "Corporate Team Outings",
+    title: "Where Teams Remember They Are Human",
+    description:
+      "Full-day agri tourism for teams — village tournaments, box cricket, farm meals, bonfire add-ons, and custom branding for your event.",
+    benefits: [
+      "Authentic team bonding beyond boardrooms",
+      "Village games & farm tournaments",
+      "Custom packages for 30+ teams",
+    ],
+    inclusions: [
+      "Full-day agri tourism programme",
+      "Village game tournaments",
+      "All meals included",
+      "Bonfire evening add-on available",
+    ],
+    galleryLabels: ["Team Activities", "Box Cricket", "Corporate Gatherings"],
+    testimonial: {
+      quote:
+        "My team bonded more in five hours here than in two years of virtual meetings.",
+      attr: "Vikram Nair · HR Head, Tech Mahindra",
+    },
+    href: "/corporate-retreats",
+    waText: "Hi, I want a corporate team outing quote",
+  },
+  {
+    id: "school",
+    anchor: "school-trips",
+    eyebrow: "School Trips & Educational Visits",
+    title: "The Field Trip They'll Describe in Essays",
+    description:
+      "NEP 2020-aligned agri tourism with dedicated coordinators, supervised zones, participation certificates, and curriculum-linked learning.",
+    benefits: [
+      "Real soil-under-nails learning",
+      "Safe, fenced supervised zones",
+      "Certificates & custom itineraries",
+    ],
+    inclusions: [
+      "NEP 2020 aligned activities",
+      "Dedicated on-ground coordinator",
+      "School learning labs on farm",
+      "Pricing from ₹499 per student (30+)",
+    ],
+    galleryLabels: ["School Groups", "Learning Labs", "Field Activities"],
+    testimonial: {
+      quote:
+        "Every activity linked to the curriculum. The children didn't realise they were learning.",
+      attr: "Ms. Radha Krishna · DPS Hyderabad",
+    },
+    href: "/school-field-trips",
+    waText: "Hi, I want to plan a school trip",
+  },
+  {
+    id: "celebrations",
+    anchor: "celebrations",
+    eyebrow: "Celebrations",
+    title: "Kitty Parties, Birthdays, Reunions & Milestones",
+    description:
+      "From kitty parties and birthday celebrations to cousins reunions and alumni meets — celebrate in nature with village activities and sattvic meals.",
+    benefits: [
+      "Private gathering spaces on the farm",
+      "Unique, photogenic experiences",
+      "100% veg celebrations in nature",
+    ],
+    inclusions: [
+      "Farm day activities included",
+      "Sattvic farm meals",
+      "Mud bath & village games",
+      "Custom group arrangements",
+    ],
+    galleryLabels: ["Birthday Celebrations", "Kitty Parties", "Group Reunions"],
+    testimonial: {
+      quote:
+        "The outing everyone talks about — mud bath, farm brunch, and games all week long.",
+      attr: "Kitty party guest · Hyderabad",
+    },
+    href: "/birthdays-celebrations",
+    waText: "Hi, I want to plan a celebration at Ananda Kshethram",
+  },
 ];
 
 export function formatWhatsAppMessage(booking: BookingData): string {

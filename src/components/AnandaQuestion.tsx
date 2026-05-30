@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import SectionEnquiryBar from "@/components/SectionEnquiryBar";
 import { ANANDA_COMPARE_IMAGES, ANANDA_QUESTION } from "@/lib/site-copy";
 
 export default function AnandaQuestion() {
@@ -27,6 +28,7 @@ export default function AnandaQuestion() {
           <p className="mt-6 text-base leading-relaxed text-forest/80 sm:text-lg">
             {ANANDA_QUESTION.body}
           </p>
+          <SectionEnquiryBar actions={["plan"]} compact className="mx-auto" />
         </motion.div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 sm:gap-8">

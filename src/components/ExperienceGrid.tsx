@@ -1,18 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { EXPERIENCE_PILLARS } from "@/lib/constants";
+import PlaceholderImage from "@/components/ui/PlaceholderImage";
 
 export default function ExperienceGrid() {
   return (
-    <section id="experience" className="section-pad bg-linen-dark">
+    <section id="farm-includes" className="section-pad bg-linen-dark">
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-14 text-center"
+          className="mb-10 text-center sm:mb-12"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
             On the Farm
@@ -21,40 +21,35 @@ export default function ExperienceGrid() {
             What Every Visit Includes
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-forest/70 sm:text-base">
-            Goushala mornings, village games, sattvic meals, and trails through
-            orchards — the same soulful farm rhythm, whether you come for a day
-            or stay the night.
+            Sattvic meals, goushala mornings, village games, and nature trails —
+            the village-inspired rhythm of Ananda Kshethram, whether you visit
+            for a day or stay the night.
           </p>
         </motion.div>
 
-        <div className="grid auto-rows-[minmax(200px,1fr)] grid-cols-1 gap-4 sm:auto-rows-[200px] md:grid-cols-4 md:auto-rows-[180px]">
+        <div className="grid auto-rows-[minmax(180px,1fr)] grid-cols-1 gap-3 sm:auto-rows-[180px] md:grid-cols-4 md:auto-rows-[160px]">
           {EXPERIENCE_PILLARS.map((pillar, index) => (
             <motion.article
               key={pillar.id}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              className={`group relative min-h-[200px] overflow-hidden rounded-2xl md:min-h-0 ${pillar.span}`}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className={`group relative min-h-[180px] overflow-hidden rounded-xl md:min-h-0 ${pillar.span}`}
             >
-              <Image
-                src={pillar.image}
-                alt={pillar.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, 400px"
+              <PlaceholderImage
+                label={pillar.title}
+                className="absolute inset-0 h-full w-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight-crimson/90 via-deep-crimson/45 to-transparent" />
-
-              <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-brand-gold">
+              <div className="absolute inset-0 bg-gradient-to-t from-midnight-crimson/90 via-forest-green/40 to-transparent" />
+              <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">
                   {pillar.subtitle}
                 </p>
-                <h3 className="mt-1 font-serif text-lg font-bold text-white sm:text-xl md:text-2xl">
+                <h3 className="mt-0.5 font-serif text-base font-bold text-white sm:text-lg">
                   {pillar.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/85 md:max-h-0 md:overflow-hidden md:opacity-0 md:transition-all md:duration-500 md:group-hover:max-h-24 md:group-hover:opacity-100">
+                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-white/80 sm:text-sm">
                   {pillar.description}
                 </p>
               </div>

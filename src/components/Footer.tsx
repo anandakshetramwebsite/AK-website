@@ -22,9 +22,10 @@ export default function Footer() {
               </h3>
             </div>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-ivory/75">
-              Hyderabad&apos;s peaceful, pure-vegetarian nature escape — where
-              families, schools, and teams reconnect with soil, cows, village
-              games, and meals that taste like home.
+              Hyderabad&apos;s first agri tourism hub and only pure veg farm
+              retreat — where families, schools, corporates, and communities
+              reconnect with village life, goushala rituals, and meaningful
+              celebrations.
             </p>
           </div>
 
@@ -35,6 +36,46 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-ivory/70">
               <li>
                 <a
+                  href="#experiences"
+                  className="transition-colors hover:text-brand-gold"
+                >
+                  Core Experiences
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#activities"
+                  className="transition-colors hover:text-brand-gold"
+                >
+                  Farm Activities
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#dedicated"
+                  className="transition-colors hover:text-brand-gold"
+                >
+                  Family · Corporate · School · Night Stay
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#goushala"
+                  className="transition-colors hover:text-brand-gold"
+                >
+                  Goushala
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#divine-events"
+                  className="transition-colors hover:text-brand-gold"
+                >
+                  Divine Events Venue
+                </a>
+              </li>
+              <li>
+                <a
                   href="#programs"
                   className="transition-colors hover:text-brand-gold"
                 >
@@ -43,10 +84,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#experience"
+                  href="#activities"
                   className="transition-colors hover:text-brand-gold"
                 >
-                  Farm Experiences
+                  All Activities
                 </a>
               </li>
               <li>

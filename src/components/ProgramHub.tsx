@@ -8,13 +8,15 @@ import ProgramCard from "@/components/ui/ProgramCard";
 import GuestCounter from "@/components/ui/GuestCounter";
 import BookingPanel from "@/components/ui/BookingPanel";
 import AudienceRotator from "@/components/AudienceRotator";
+import SectionEnquiryBar from "@/components/SectionEnquiryBar";
 
 const FILTERS = [
-  { id: "all", label: "All" },
-  { id: "family", label: "Family Outings" },
-  { id: "corporate", label: "Corporate Retreats" },
-  { id: "school", label: "School Trips" },
-  { id: "night-stay", label: "Night Stays" },
+  { id: "all", label: "All Packages" },
+  { id: "family", label: "Day Outing Packages" },
+  { id: "night-stay", label: "Night Stay Packages" },
+  { id: "school", label: "School Trip Packages" },
+  { id: "corporate", label: "Corporate Packages" },
+  { id: "events", label: "Event Bookings" },
 ];
 
 export default function ProgramHub() {
@@ -22,11 +24,16 @@ export default function ProgramHub() {
 
   const filteredPrograms = useMemo(() => {
     if (activeFilter === "all") return PROGRAMS;
+    if (activeFilter === "events") {
+      return PROGRAMS.filter(
+        (p) => p.id === "mango-festival" || p.id === "kitty-reunion"
+      );
+    }
     return PROGRAMS.filter((p) => p.categories.includes(activeFilter as never));
   }, [activeFilter]);
 
   return (
-    <section id="programs" className="section-pad bg-linen">
+    <section id="programs" className="section-pad scroll-mt-20 bg-linen">
       <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,14 +42,15 @@ export default function ProgramHub() {
           className="text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
-            Transparent Agri Tourism Pricing
+            Packages &amp; Booking
           </p>
           <h2 className="heading-section mt-3 text-forest">
-            Honest Packages. No Surprises.
+            Day Outings · Night Stays · School · Corporate · Events
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-forest/70 sm:text-base">
-            Everything included. Everything explained. Choose your agri tourism
-            experience.
+            Transparent pricing — day outing packages, night stay packages, school
+            trip packages, corporate packages, and event booking enquiries. Book
+            your visit or enquire now.
           </p>
 
           <div className="mx-auto mt-8 max-w-2xl overflow-hidden rounded-2xl border border-brand-gold/40 bg-ivory shadow-[0_4px_24px_rgba(201,148,26,0.12)]">
@@ -79,14 +87,13 @@ export default function ProgramHub() {
           </div>
         </motion.div>
 
-        {/* Filter pills */}
-        <div className="-mx-4 mt-8 flex gap-2 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0">
+        <div className="-mx-4 mt-8 flex gap-2 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:flex-wrap sm:justify-center sm:gap-2 sm:overflow-visible sm:px-0">
           {FILTERS.map((filter) => (
             <motion.button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
               whileTap={{ scale: 0.97 }}
-              className={`shrink-0 snap-start rounded-full px-4 py-3 text-sm font-semibold transition-all sm:px-5 ${
+              className={`shrink-0 snap-start rounded-full px-3.5 py-2.5 text-xs font-semibold transition-all sm:px-4 sm:text-sm ${
                 activeFilter === filter.id
                   ? "bg-brand-crimson text-ivory shadow-lg"
                   : "bg-linen-dark text-forest/70 hover:bg-brand-crimson/10"
@@ -97,11 +104,9 @@ export default function ProgramHub() {
           ))}
         </div>
 
-        {/* Guest counter & booking panel */}
         <BookingPanel />
         <GuestCounter />
 
-        {/* Program grid */}
         <motion.div
           key={activeFilter}
           initial={{ opacity: 0 }}
@@ -110,11 +115,7 @@ export default function ProgramHub() {
           className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3"
         >
           {filteredPrograms.map((program, index) => (
-            <ProgramCard
-              key={program.id}
-              program={program}
-              index={index}
-            />
+            <ProgramCard key={program.id} program={program} index={index} />
           ))}
         </motion.div>
 
@@ -124,17 +125,20 @@ export default function ProgramHub() {
           </p>
         )}
 
-        <p className="mx-auto mt-12 max-w-xl text-center text-sm text-forest/65">
-          Need something custom? We build packages around your group.{" "}
-          <a
-            href="https://wa.me/917799900060"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-brand-crimson hover:text-brand-gold"
-          >
-            WhatsApp us →
-          </a>
-        </p>
+        {activeFilter === "events" && (
+          <p className="mx-auto mt-6 max-w-lg text-center text-sm text-forest/65">
+            For weddings, homams, and divine events at Ananda Brundavanam,{" "}
+            <a href="#divine-events" className="font-semibold text-brand-crimson">
+              enquire here →
+            </a>
+          </p>
+        )}
+
+        <SectionEnquiryBar
+          actions={["book", "enquire"]}
+          waText="Hi, I want to book a package at Ananda Kshethram"
+          compact
+        />
       </div>
     </section>
   );

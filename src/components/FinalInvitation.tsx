@@ -1,36 +1,54 @@
-import { whatsappUrl } from "@/lib/site-copy";
+import { BRAND_VALUES, WHATSAPP_PHONE } from "@/lib/constants";
 
 export default function FinalInvitation() {
   return (
     <section
       id="book"
-      className="bg-midnight-crimson px-4 py-10 text-center text-ivory sm:px-6 sm:py-12"
+      className="bg-midnight-crimson px-4 py-12 text-center text-ivory sm:px-6 sm:py-14"
     >
       <div className="container-page">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-gold sm:text-xs">
-          The Invitation
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
+          Your Ananda Experience Awaits
         </p>
-        <h2 className="mx-auto mt-2 max-w-xl font-serif text-2xl font-light italic leading-snug text-ivory sm:mt-3 sm:text-3xl">
-          Your family deserves one day without screens.
-          <br />
-          <span className="text-warm-gold">Give them Ananda.</span>
+        <h2 className="mx-auto mt-2 max-w-2xl font-serif text-2xl font-light italic leading-snug sm:text-3xl">
+          The complete Ananda Kshethram ecosystem — nature, village life, agri
+          tourism, and meaningful experiences
         </h2>
-        <div className="mt-5 flex flex-col items-center justify-center gap-2.5 sm:flex-row sm:gap-3">
+        <div className="mx-auto mt-4 flex max-w-3xl flex-wrap justify-center gap-x-2 gap-y-1">
+          {BRAND_VALUES.map((value) => (
+            <span key={value} className="text-xs text-ivory/60 sm:text-sm">
+              {value}
+            </span>
+          ))}
+        </div>
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="#programs"
-            className="touch-target w-full max-w-[14rem] rounded-full bg-brand-gold px-6 py-2.5 text-sm font-bold text-brand-crimson shadow-lg transition-transform hover:scale-[1.02] sm:w-auto"
+            className="touch-target rounded-full bg-brand-gold px-8 py-3 text-sm font-bold text-brand-crimson shadow-lg transition-transform hover:scale-[1.02]"
           >
-            Book a Visit
+            Book Your Visit
           </a>
           <a
-            href={whatsappUrl("Hi, I want to plan a visit to Ananda Kshethram")}
+            href={`https://wa.me/${WHATSAPP_PHONE}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="touch-target w-full max-w-[14rem] rounded-full border border-ivory/40 px-6 py-2.5 text-sm font-semibold text-ivory transition-colors hover:border-brand-gold hover:text-brand-gold sm:w-auto"
+            className="touch-target rounded-full border border-ivory/45 px-8 py-3 text-sm font-semibold text-ivory transition-colors hover:border-brand-gold hover:text-brand-gold"
           >
-            WhatsApp to Plan →
+            WhatsApp Us
           </a>
         </div>
+        <p className="mx-auto mt-5 max-w-md text-xs text-ivory/50">
+          Call, site visits, and custom packages — use the enquiry options
+          throughout this page or reach us anytime.
+        </p>
+        <a
+          href={`https://wa.me/${WHATSAPP_PHONE}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-block text-xs text-ivory/45 hover:text-brand-gold"
+        >
+          anandakshethram.com · Chevella, Telangana
+        </a>
       </div>
     </section>
   );

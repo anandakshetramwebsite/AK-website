@@ -36,7 +36,7 @@ export default function HeroMangoFestivalPromo() {
       initial={{ opacity: 0, y: -12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
-      className="pointer-events-none relative z-30 w-full shrink-0 px-4 pt-[max(0.75rem,env(safe-area-inset-top))] md:fixed md:inset-x-0 md:top-0 md:flex md:justify-end md:px-8 md:pt-7"
+      className="pointer-events-none relative z-30 mt-[4.75rem] w-full shrink-0 px-4 sm:mt-20 md:fixed md:inset-x-0 md:top-[4.75rem] md:mt-0 md:flex md:justify-end md:px-8 md:pt-2"
     >
       <div className="hero-event-promo pointer-events-auto relative mx-auto w-full max-w-md md:mx-0 md:max-w-[22rem]">
         {SPARKLES.map((s) => (

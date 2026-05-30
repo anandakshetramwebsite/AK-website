@@ -52,7 +52,7 @@
   }
 
   .section-pad {
-    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
+    @apply px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20;
   }
 
   .container-page {
@@ -74,6 +74,35 @@
 
   .heading-section {
     @apply font-serif text-3xl font-light italic leading-tight sm:text-4xl lg:text-5xl;
+  }
+
+  .village-pattern {
+    background-image: radial-gradient(
+      circle at 20% 50%,
+      rgba(28, 58, 20, 0.04) 0%,
+      transparent 50%
+    );
+  }
+
+  @keyframes clarify {
+    from {
+      filter: blur(14px);
+      opacity: 0.25;
+      transform: translateY(6px);
+    }
+    to {
+      filter: blur(0);
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-clarify {
+    animation: clarify 0.85s cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+
+  .animate-clarify-delay-1 {
+    animation-delay: 0.12s;
   }
 
   .school-trust-marquee:hover .school-trust-marquee-track {
@@ -214,5 +243,13 @@
 
   .share-label-shine-bar {
     animation: none;
+  }
+
+  .animate-clarify,
+  .animate-clarify-delay-1 {
+    animation: none;
+    filter: none;
+    opacity: 1;
+    transform: none;
   }
 }

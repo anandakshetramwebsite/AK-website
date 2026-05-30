@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { SiteContent } from "@/lib/cms/types";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import InstagramReelEmbed from "@/components/InstagramReelEmbed";
@@ -116,9 +115,9 @@ export default function MediaShowcase({
         </div>
 
         <p className="mt-8 text-center text-sm text-midnight-crimson/60">
-          <Link href="/gallery" className="underline hover:text-brand-gold">
+          <a href="#videos" className="underline hover:text-brand-gold">
             View gallery
-          </Link>{" "}
+          </a>{" "}
           for more moments from the farm.
         </p>
       </div>
