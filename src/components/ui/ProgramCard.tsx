@@ -38,7 +38,6 @@ export default function ProgramCard({ program, index }: ProgramCardProps) {
 
   return (
     <motion.article
-      layout
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -176,9 +175,9 @@ export default function ProgramCard({ program, index }: ProgramCardProps) {
       </div>
 
       {isSelected && (
-        <motion.div
-          layoutId={`selected-ring-${program.id}`}
+        <div
           className="pointer-events-none absolute inset-0 rounded-2xl ring-2 ring-brand-gold ring-offset-2 ring-offset-linen"
+          aria-hidden
         />
       )}
     </motion.article>

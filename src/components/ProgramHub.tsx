@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { PROGRAMS } from "@/lib/constants";
 import { useBooking } from "@/context/BookingContext";
 import ProgramCard from "@/components/ui/ProgramCard";
@@ -72,24 +72,21 @@ export default function ProgramHub() {
         <GuestCounter />
 
         {/* Program grid / slider */}
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={activeFilter}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mt-8 flex flex-col gap-5 sm:mt-10 md:flex-row md:flex-wrap md:justify-center"
-          >
-            {filteredPrograms.map((program, index) => (
-              <ProgramCard
-                key={program.id}
-                program={program}
-                index={index}
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
+        <motion.div
+          key={activeFilter}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="mt-8 flex flex-col gap-5 sm:mt-10 md:flex-row md:flex-wrap md:justify-center"
+        >
+          {filteredPrograms.map((program, index) => (
+            <ProgramCard
+              key={program.id}
+              program={program}
+              index={index}
+            />
+          ))}
+        </motion.div>
 
         {filteredPrograms.length === 0 && (
           <p className="mt-10 text-center text-forest/50">

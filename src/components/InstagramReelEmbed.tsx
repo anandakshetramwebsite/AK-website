@@ -8,20 +8,36 @@ type Props = {
 
 export default function InstagramReelEmbed({ permalink }: Props) {
   useEffect(() => {
+    let cancelled = false;
+
     const process = () => {
-      if (typeof window !== "undefined" && "instgrm" in window) {
-        (window as Window & { instgrm?: { Embeds: { process: () => void } } }).instgrm?.Embeds.process();
-      }
+      if (cancelled) return;
+      const instgrm = (
+        window as Window & { instgrm?: { Embeds: { process: () => void } } }
+      ).instgrm;
+      instgrm?.Embeds.process();
     };
-    if (document.querySelector('script[src*="instagram.com/embed.js"]')) {
+
+    const existing = document.querySelector(
+      'script[src*="instagram.com/embed.js"]'
+    );
+
+    if (existing) {
       process();
-      return;
+      return () => {
+        cancelled = true;
+      };
     }
+
     const script = document.createElement("script");
     script.src = "https://www.instagram.com/embed.js";
     script.async = true;
     script.onload = process;
     document.body.appendChild(script);
+
+    return () => {
+      cancelled = true;
+    };
   }, [permalink]);
 
   return (
