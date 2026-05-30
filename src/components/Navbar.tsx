@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { MAPS_URL, YOUTUBE_URL } from "@/lib/constants";
+import { BRAND_LOGO, MAPS_URL, YOUTUBE_URL } from "@/lib/constants";
 
 const NAV_LINKS = [
   { href: "#programs", label: "Programs" },
@@ -35,7 +36,14 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
         <Link href="/" className="group flex items-center gap-2">
-          <span className="text-2xl">🌿</span>
+          <Image
+            src={BRAND_LOGO}
+            alt="Ananda Kshethram"
+            width={36}
+            height={36}
+            className="h-9 w-9 shrink-0 object-contain drop-shadow-md"
+            priority
+          />
           <span className="font-serif text-xl font-bold tracking-tight text-white drop-shadow-md group-hover:text-mango transition-colors">
             Ananda Kshethram
           </span>

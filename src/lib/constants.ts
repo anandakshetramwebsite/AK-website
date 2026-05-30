@@ -42,6 +42,9 @@ export const MAPS_URL =
 
 export const SITE_URL = "https://anandakshethram.com";
 
+export const BRAND_LOGO = "/ak-logo.png";
+export const BRAND_FAVICON = "/ak-favicon.png";
+
 export const FARM_LOCATION = {
   line: "Chevella Mandal, R.R. District, Telangana",
   note: "~60 minutes from Gachibowli, Hyderabad",

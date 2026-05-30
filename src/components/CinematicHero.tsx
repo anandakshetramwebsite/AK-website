@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState, useCallback, useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { HERO_TRUST_STATS, HERO_VIDEO_URL } from "@/lib/constants";
+import { BRAND_LOGO, HERO_TRUST_STATS, HERO_VIDEO_URL } from "@/lib/constants";
 import HeroMangoFestivalPromo from "@/components/HeroMangoFestivalPromo";
 
 const LEAVES = [
@@ -117,9 +118,14 @@ export default function CinematicHero() {
             transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
             className="w-full max-w-4xl"
           >
-            <p className="font-serif text-base font-light italic tracking-wide text-gold-mist/95 sm:text-lg md:text-xl">
-              Ananda Kshethram
-            </p>
+            <Image
+              src={BRAND_LOGO}
+              alt="Ananda Kshethram"
+              width={96}
+              height={96}
+              priority
+              className="mx-auto h-16 w-16 object-contain drop-shadow-lg sm:h-20 sm:w-20 md:h-24 md:w-24"
+            />
 
             <h1 className="mx-auto mt-3 max-w-[18ch] font-serif text-[2.125rem] font-light italic leading-[1.12] tracking-tight text-ivory drop-shadow-lg sm:max-w-4xl sm:text-5xl md:text-6xl lg:text-[3.35rem]">
               Give Your Child a Childhood

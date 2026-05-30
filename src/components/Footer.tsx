@@ -1,4 +1,5 @@
-import { MAPS_URL, YOUTUBE_URL, MANGO_FESTIVAL_FORM } from "@/lib/constants";
+import Image from "next/image";
+import { BRAND_LOGO, MAPS_URL, YOUTUBE_URL, MANGO_FESTIVAL_FORM } from "@/lib/constants";
 import { SOCIAL_LINKS } from "@/lib/social";
 import BuiltByCredit from "@/components/BuiltByCredit";
 
@@ -8,9 +9,18 @@ export default function Footer() {
       <div className="container-page py-12 sm:py-16">
         <div className="grid gap-10 sm:gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
-            <h3 className="font-serif text-2xl font-light italic">
-              Ananda Kshethram
-            </h3>
+            <div className="flex items-center gap-3">
+              <Image
+                src={BRAND_LOGO}
+                alt="Ananda Kshethram"
+                width={52}
+                height={52}
+                className="h-12 w-12 shrink-0 object-contain"
+              />
+              <h3 className="font-serif text-2xl font-light italic">
+                Ananda Kshethram
+              </h3>
+            </div>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-ivory/75">
               Hyderabad&apos;s peaceful, pure-vegetarian nature escape — where
               families, schools, and teams reconnect with soil, cows, village
