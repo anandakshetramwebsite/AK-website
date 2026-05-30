@@ -20,14 +20,14 @@ export default function GuestCounter() {
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="mx-auto mt-8 flex max-w-lg flex-wrap items-center justify-center gap-6 rounded-2xl border border-forest/10 bg-linen-dark/50 p-5"
+      className="mx-auto mt-8 flex max-w-lg flex-col items-stretch justify-center gap-5 rounded-2xl border border-forest/10 bg-linen-dark/50 p-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6 sm:p-5"
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between gap-3 sm:justify-center">
         <span className="text-sm font-medium text-forest/70">Adults</span>
         <div className="flex items-center gap-2">
           <button
             onClick={decrementAdults}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-forest/10 text-forest transition-colors hover:bg-forest/20"
+            className="touch-target rounded-full bg-forest/10 text-lg text-forest transition-colors hover:bg-forest/20"
             aria-label="Decrease adults"
           >
             −
@@ -41,7 +41,7 @@ export default function GuestCounter() {
           <button
             id="btn-add-adult"
             onClick={incrementAdults}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-mango text-forest transition-all hover:scale-110"
+            className="touch-target rounded-full bg-brand-gold text-lg text-brand-crimson transition-all hover:scale-110"
             aria-label="Increase adults"
           >
             +
@@ -49,14 +49,14 @@ export default function GuestCounter() {
         </div>
       </div>
 
-      <div className="h-6 w-px bg-forest/20" />
+      <div className="hidden h-6 w-px bg-forest/20 sm:block" />
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between gap-3 sm:justify-center">
         <span className="text-sm font-medium text-forest/70">Children</span>
         <div className="flex items-center gap-2">
           <button
             onClick={decrementChildren}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-forest/10 text-forest transition-colors hover:bg-forest/20"
+            className="touch-target rounded-full bg-forest/10 text-lg text-forest transition-colors hover:bg-forest/20"
             aria-label="Decrease children"
           >
             −
@@ -70,7 +70,7 @@ export default function GuestCounter() {
           <button
             id="btn-add-child"
             onClick={incrementChildren}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-mango text-forest transition-all hover:scale-110"
+            className="touch-target rounded-full bg-brand-gold text-lg text-brand-crimson transition-all hover:scale-110"
             aria-label="Increase children"
           >
             +

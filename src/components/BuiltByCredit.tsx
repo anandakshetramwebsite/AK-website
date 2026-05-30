@@ -19,7 +19,7 @@ export default function BuiltByCredit({ tone = "dark" }: Props) {
       ? "text-gold-mist group-hover:text-brand-gold"
       : tone === "cream"
         ? "text-forest group-hover:text-mango"
-        : "text-linen group-hover:text-mango";
+        : "text-linen group-hover:text-brand-gold";
 
   return (
     <div className={`mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3 ${textClass}`}>
@@ -32,11 +32,11 @@ export default function BuiltByCredit({ tone = "dark" }: Props) {
         aria-label="AI Developer India — visit aideveloperindia.store"
       >
         <Image
-          src="/ai-developer-logo.svg"
+          src="/ai-developer-logo.png"
           alt="AI Developer India logo"
-          width={40}
-          height={40}
-          className="h-10 w-10 object-contain"
+          width={44}
+          height={44}
+          className="h-11 w-11 shrink-0 object-contain object-bottom"
           unoptimized
         />
         <span className={`text-sm font-semibold transition-colors ${nameClass}`}>

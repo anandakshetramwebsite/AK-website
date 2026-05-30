@@ -20,19 +20,19 @@ export default function Testimonials() {
     setActive((i) => (i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
 
   return (
-    <section id="testimonials" className="bg-linen py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="testimonials" className="section-pad bg-linen">
+      <div className="container-page">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mb-14 text-center"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-mango">
-            Social Proof
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
+            Voices from the Farm
           </p>
-          <h2 className="mt-3 font-serif text-4xl font-bold text-forest md:text-5xl">
-            Trusted by Institutions &amp; Families
+          <h2 className="heading-section mt-3 text-forest">
+            Trusted by Schools &amp; Families
           </h2>
         </motion.div>
 
@@ -47,14 +47,14 @@ export default function Testimonials() {
               href={YOUTUBE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-forest hover:text-mango"
+              className="font-semibold text-forest hover:text-brand-gold"
             >
               Subscribe on YouTube @anandakshethram →
             </a>
           </p>
 
           {/* Testimonial slider */}
-          <div className="relative rounded-2xl border border-forest/10 bg-white/50 p-8 backdrop-blur-sm md:p-12">
+          <div className="relative rounded-2xl border border-forest/10 bg-white/50 p-5 backdrop-blur-sm sm:p-8 md:p-12">
             <AnimatePresence mode="wait">
               <motion.blockquote
                 key={active}
@@ -63,8 +63,8 @@ export default function Testimonials() {
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.4 }}
               >
-                <span className="text-4xl text-mango">&ldquo;</span>
-                <p className="mt-2 font-serif text-xl leading-relaxed text-forest md:text-2xl">
+                <span className="text-4xl text-brand-gold">&ldquo;</span>
+                <p className="mt-2 font-serif text-lg leading-relaxed text-forest sm:text-xl md:text-2xl">
                   {TESTIMONIALS[active].quote}
                 </p>
                 <footer className="mt-6 flex items-center gap-4">
@@ -91,8 +91,8 @@ export default function Testimonials() {
                     onClick={() => setActive(i)}
                     className={`h-2 rounded-full transition-all ${
                       i === active
-                        ? "w-8 bg-mango"
-                        : "w-2 bg-forest/20 hover:bg-forest/40"
+                        ? "w-8 bg-brand-gold"
+                        : "w-2 bg-forest/20 hover:bg-brand-crimson/40"
                     }`}
                     aria-label={`Go to testimonial ${i + 1}`}
                   />
@@ -101,14 +101,14 @@ export default function Testimonials() {
               <div className="flex gap-2">
                 <button
                   onClick={prev}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-forest/20 text-forest transition-colors hover:border-mango hover:text-mango"
+                  className="touch-target rounded-full border border-forest/20 text-lg text-forest transition-colors hover:border-brand-gold hover:text-brand-gold"
                   aria-label="Previous testimonial"
                 >
                   ←
                 </button>
                 <button
                   onClick={next}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-forest/20 text-forest transition-colors hover:border-mango hover:text-mango"
+                  className="touch-target rounded-full border border-forest/20 text-lg text-forest transition-colors hover:border-brand-gold hover:text-brand-gold"
                   aria-label="Next testimonial"
                 >
                   →

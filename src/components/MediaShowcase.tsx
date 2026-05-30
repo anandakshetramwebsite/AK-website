@@ -21,30 +21,28 @@ export default function MediaShowcase({
     <section
       id="videos"
       className={
-        isForest
-          ? "bg-linen-dark py-24"
-          : "brand-section-spacing bg-warm-cream"
+        isForest ? "section-pad bg-linen-dark" : "section-pad bg-warm-cream"
       }
     >
-      <div className={isForest ? "mx-auto max-w-7xl px-6" : "brand-container"}>
+      <div className="container-page">
         <div className="text-center">
           <p
             className={
               isForest
-                ? "text-sm font-semibold uppercase tracking-[0.2em] text-mango"
+                ? "text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold"
                 : "text-xs uppercase tracking-[0.2em] text-brand-gold"
             }
           >
-            Watch & Follow
+            {isForest ? "From the Farm" : "Watch & Follow"}
           </p>
           <h2
             className={
               isForest
-                ? "mt-3 font-serif text-4xl font-bold text-forest md:text-5xl"
-                : "mt-3 font-serif text-3xl text-brand-crimson md:text-5xl"
+                ? "heading-section mt-3 text-forest"
+                : "heading-section mt-3 text-brand-crimson"
             }
           >
-            {media.sectionTitle}
+            {isForest ? "Moments Worth Sharing" : media.sectionTitle}
           </h2>
           <p
             className={
@@ -65,26 +63,43 @@ export default function MediaShowcase({
           </div>
         )}
 
-        <div className={hideVideos ? "mt-6" : "mt-12"}>
+        <div
+          className={
+            isForest
+              ? "mt-10 rounded-2xl bg-forest-green px-4 py-10 text-ivory sm:mt-12 sm:rounded-3xl sm:px-6 sm:py-12 md:px-10"
+              : hideVideos
+                ? "mt-6"
+                : "mt-12"
+          }
+        >
+          <p
+            className={
+              isForest
+                ? "text-center text-xs uppercase tracking-[0.22em] text-brand-gold"
+                : undefined
+            }
+          >
+            {isForest ? "@anandakshethram" : null}
+          </p>
           <h3
             className={
               isForest
-                ? "text-center font-serif text-2xl text-forest"
+                ? "mt-2 text-center font-serif text-2xl font-light italic text-ivory sm:text-3xl md:text-4xl"
                 : "text-center font-serif text-2xl text-brand-crimson"
             }
           >
-            {media.instagram.headline}
+            {isForest ? media.sectionTitle : media.instagram.headline}
           </h3>
           <p
             className={
               isForest
-                ? "mt-2 text-center text-sm text-forest/70"
+                ? "mt-2 text-center text-sm text-ivory/75"
                 : "mt-2 text-center text-sm text-midnight-crimson/80"
             }
           >
             {media.instagram.note}
           </p>
-          <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:items-start">
+          <div className="mt-6 grid gap-6 sm:mt-8 sm:gap-8 lg:grid-cols-2 lg:items-start">
             <InstagramReelEmbed permalink={media.instagram.reelUrl} />
             <div className="flex flex-col justify-center gap-4">
               <SocialLinks media={media} className="justify-center lg:justify-start" />
@@ -94,11 +109,11 @@ export default function MediaShowcase({
                 rel="noopener noreferrer"
                 className={
                   isForest
-                    ? "text-center text-sm font-semibold text-forest hover:text-mango lg:text-left"
+                    ? "text-center text-sm font-semibold text-ivory hover:text-brand-gold lg:text-left"
                     : "text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
                 }
               >
-                Follow @anandakshethram on Instagram →
+                Follow @anandakshethram →
               </a>
               <a
                 href={media.social.youtubeChannel}
@@ -106,7 +121,7 @@ export default function MediaShowcase({
                 rel="noopener noreferrer"
                 className={
                   isForest
-                    ? "text-center text-sm font-semibold text-forest hover:text-mango lg:text-left"
+                    ? "text-center text-sm font-semibold text-ivory/90 hover:text-brand-gold lg:text-left"
                     : "text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
                 }
               >

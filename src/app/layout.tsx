@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { getSiteContent } from "@/lib/cms/storage";
 import "./globals.css";
@@ -14,6 +14,13 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#3a0808",
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getSiteContent();
@@ -32,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen min-h-[100dvh] antialiased">{children}</body>
     </html>
   );
 }

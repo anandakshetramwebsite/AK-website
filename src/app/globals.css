@@ -8,8 +8,14 @@
   --color-warm-gold: #e8b84b;
   --color-gold-mist: #f5e6c0;
   --color-forest-green: #1c3a14;
+  --color-forest-light: #2d5a27;
   --color-warm-cream: #fbf6ee;
   --color-ivory: #fefcf8;
+  /* Version 1 aliases (AK Farm Build Guide palette) */
+  --color-forest: #1c3a14;
+  --color-mango: #c9941a;
+  --color-linen: #fbf6ee;
+  --color-linen-dark: #f2ead8;
   --font-serif: var(--font-cormorant);
   --font-sans: var(--font-dm-sans);
 }
@@ -17,10 +23,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-warm-cream text-midnight-crimson antialiased;
+    overflow-x: clip;
     font-family: var(--font-dm-sans), system-ui, sans-serif;
   }
 
@@ -40,5 +49,44 @@
 
   .brand-button {
     @apply inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all;
+  }
+
+  .section-pad {
+    @apply px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .touch-target {
+    @apply inline-flex min-h-12 min-w-12 items-center justify-center;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .heading-section {
+    @apply font-serif text-3xl font-light italic leading-tight sm:text-4xl lg:text-5xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

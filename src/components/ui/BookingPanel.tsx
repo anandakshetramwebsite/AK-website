@@ -18,7 +18,7 @@ export default function BookingPanel() {
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="mx-auto mt-8 max-w-2xl scroll-mt-24 rounded-2xl border-2 border-forest/10 bg-white/40 p-6 backdrop-blur-sm"
+      className="mx-auto mt-8 max-w-2xl scroll-mt-24 rounded-2xl border-2 border-forest/10 bg-white/40 p-4 backdrop-blur-sm sm:p-6"
     >
       <h3 className="font-serif text-lg font-bold text-forest">
         Booking Details
@@ -37,7 +37,7 @@ export default function BookingPanel() {
             type="date"
             value={booking.date}
             onChange={(e) => updateBooking({ date: e.target.value })}
-            className="w-full rounded-xl border border-forest/15 bg-linen px-4 py-2.5 text-sm text-forest focus:border-mango focus:outline-none focus:ring-2 focus:ring-mango/20"
+            className="min-h-12 w-full rounded-xl border border-forest/15 bg-linen px-4 py-3 text-base text-forest focus:border-brand-gold focus:outline-none focus:ring-2 focus:ring-brand-gold/20"
           />
         </div>
 
@@ -54,7 +54,7 @@ export default function BookingPanel() {
             placeholder="Evening pottery slot, dietary needs..."
             value={booking.notes}
             onChange={(e) => updateBooking({ notes: e.target.value })}
-            className="w-full rounded-xl border border-forest/15 bg-linen px-4 py-2.5 text-sm text-forest placeholder:text-forest/40 focus:border-mango focus:outline-none focus:ring-2 focus:ring-mango/20"
+            className="min-h-12 w-full rounded-xl border border-forest/15 bg-linen px-4 py-3 text-base text-forest placeholder:text-forest/40 focus:border-brand-gold focus:outline-none focus:ring-2 focus:ring-brand-gold/20"
           />
         </div>
       </div>
@@ -71,7 +71,7 @@ export default function BookingPanel() {
       <button
         id="btn-whatsapp-submit"
         onClick={handleWhatsAppSubmit}
-        className="mt-5 w-full rounded-full bg-[#25D366] py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:scale-[1.02] hover:shadow-[#25D366]/30"
+        className="touch-target mt-5 w-full rounded-full bg-[#25D366] py-3.5 text-sm font-bold text-white shadow-lg transition-all active:scale-[0.98] hover:scale-[1.02] hover:shadow-[#25D366]/30"
       >
         Send Booking via WhatsApp 💬
       </button>
