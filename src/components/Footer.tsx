@@ -16,10 +16,6 @@ export default function Footer() {
               families, schools, and teams reconnect with soil, cows, village
               games, and meals that taste like home.
             </p>
-            <p className="mt-3 text-xs text-gold-mist/80">
-              Chevella Mandal, R.R. District, Telangana · ~60 min from
-              Gachibowli
-            </p>
           </div>
 
           <div>

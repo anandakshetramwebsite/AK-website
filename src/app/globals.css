@@ -131,6 +131,65 @@
       left: 150%;
     }
   }
+
+  .share-label-flash {
+    position: relative;
+    display: inline-block;
+    padding: 0 2px;
+  }
+
+  .share-label-stroke {
+    position: relative;
+    z-index: 10;
+    color: #ffd54a;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-shadow:
+      -1.5px -1.5px 0 #3a0808,
+      1.5px -1.5px 0 #3a0808,
+      -1.5px 1.5px 0 #3a0808,
+      1.5px 1.5px 0 #3a0808,
+      0 0 10px rgba(255, 213, 74, 0.95),
+      0 0 18px rgba(201, 148, 26, 0.7);
+  }
+
+  .share-label-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    overflow: hidden;
+    border-radius: 2px;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  .share-label-shine-bar {
+    position: absolute;
+    top: -40%;
+    left: -120%;
+    width: 48%;
+    height: 180%;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.35) 40%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0.35) 60%,
+      transparent 100%
+    );
+    transform: skewX(-22deg);
+    animation: share-label-blade 2.8s ease-in-out infinite;
+  }
+
+  @keyframes share-label-blade {
+    0% {
+      left: -120%;
+    }
+    45%,
+    100% {
+      left: 160%;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -151,5 +210,9 @@
   .school-badge-shine::after {
     animation: none;
     display: none;
+  }
+
+  .share-label-shine-bar {
+    animation: none;
   }
 }

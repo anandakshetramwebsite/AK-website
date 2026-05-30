@@ -10,6 +10,7 @@ import FaqSection from "@/components/FaqSection";
 import FinalInvitation from "@/components/FinalInvitation";
 import Footer from "@/components/Footer";
 import FallingMangoes from "@/components/FallingMangoes";
+import ShareMangoFloater from "@/components/ShareMangoFloater";
 import { BookingProvider } from "@/context/BookingContext";
 import { getSiteContent } from "@/lib/cms/storage";
 
@@ -30,6 +31,7 @@ export default async function Version1Home() {
   return (
     <BookingProvider>
       <FallingMangoes />
+      <ShareMangoFloater />
       <main className="relative overflow-x-clip">
         <CinematicHero />
         <AnandaQuestion />

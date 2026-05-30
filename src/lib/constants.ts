@@ -40,6 +40,13 @@ export const WHATSAPP_PHONE = "917799900060";
 export const MAPS_URL =
   "https://maps.app.goo.gl/FE6nhgHTa7P2j6d39";
 
+export const SITE_URL = "https://anandakshethram.com";
+
+export const FARM_LOCATION = {
+  line: "Chevella Mandal, R.R. District, Telangana",
+  note: "~60 minutes from Gachibowli, Hyderabad",
+} as const;
+
 export const YOUTUBE_URL = "https://www.youtube.com/@anandakshethram";
 
 export const MANGO_FESTIVAL_FORM =
@@ -335,6 +342,57 @@ ${dateLine}👥 Attendance Details:
 export function getWhatsAppUrl(booking: BookingData): string {
   const message = formatWhatsAppMessage(booking);
   return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+}
+
+/** Prefilled message for “Share with a friend” via WhatsApp (ASCII-safe for all devices) */
+export function buildFarmShareMessage(siteUrl: string = SITE_URL): string {
+  const event = MANGO_FESTIVAL_EVENT;
+  const tagline = event.tagline.replace(/\s*·\s*/g, " | ");
+
+  return [
+    "*ANANDA KSHETHRAM*",
+    "Agri tourism & farm retreats near Hyderabad",
+    "",
+    "Hi! I wanted to share this farm with you - looks perfect for a family day, school trip, or team outing.",
+    "",
+    "----------------------------------------",
+    "UPCOMING EVENT",
+    "----------------------------------------",
+    `*${event.title}*`,
+    `${event.dateWeekday}, ${event.dateDay} ${event.dateMonth} ${event.dateYear}`,
+    tagline,
+    `Register: ${event.formUrl}`,
+    "",
+    "----------------------------------------",
+    "LOCATION",
+    "----------------------------------------",
+    FARM_LOCATION.line,
+    FARM_LOCATION.note,
+    `Directions: ${MAPS_URL}`,
+    "",
+    "----------------------------------------",
+    "PACKAGES (starting from)",
+    "----------------------------------------",
+    "1. Farm Day Outing - Rs.1,299 per person (day visit, all inclusive)",
+    "2. Farm Night Stay - Rs.1,999 per person (overnight, meals included)",
+    "3. School agri tourism trip - Rs.499 or Rs.699 per student (min. 30 students)",
+    "4. Corporate outing - Rs.1,299 per person",
+    "5. Mango Festival - Rs.1,299 adult | Rs.899 child (7 June 2026)",
+    "",
+    "Group discounts available for 30+ guests.",
+    "",
+    "----------------------------------------",
+    "CONTACT",
+    "----------------------------------------",
+    "Call / WhatsApp: +91 77999 00060",
+    `Website: ${siteUrl}`,
+    "",
+    "100% vegetarian farm | 60+ activities | School-friendly",
+  ].join("\n");
+}
+
+export function getFarmShareWhatsAppUrl(siteUrl: string = SITE_URL): string {
+  return `https://wa.me/?text=${encodeURIComponent(buildFarmShareMessage(siteUrl))}`;
 }
 
 export function calculateGroupDiscount(
