@@ -1,3 +1,8 @@
+export interface ProgramPriceTier {
+  price: number;
+  label: string;
+}
+
 export interface Program {
   id: string;
   title: string;
@@ -7,12 +12,18 @@ export interface Program {
   image: string;
   adultPrice: number;
   childPrice: number;
+  /** School-style dual pricing (with / without lunch) */
+  priceTiers?: ProgramPriceTier[];
+  priceNote?: string;
   groupDiscount?: { minGroup: number; percent: number };
   badge?: string;
+  packageBadge?: string;
   description: string;
   highlights: string[];
+  potteryNote?: string;
   formUrl?: string;
   featured?: boolean;
+  waText?: string;
 }
 
 export interface BookingData {
@@ -41,6 +52,7 @@ export const MANGO_FESTIVAL_EVENT = {
   dateDay: 7,
   dateMonth: "June",
   dateYear: 2026,
+  dateWeekday: "Saturday",
   dateLine: "Saturday, 7 June 2026",
   tagline: "Harvest feast · Folk music · Bullock cart trails",
   cta: "Register Now →",
@@ -55,89 +67,106 @@ export const HERO_VIDEO_URL =
 
 export const PROGRAMS: Program[] = [
   {
-    id: "school-trip",
-    title: "School Field Trip",
-    subtitle: "NEP-aligned learning on the farm",
-    category: "school",
-    categories: ["school"],
-    image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
-    adultPrice: 500,
-    childPrice: 300,
-    groupDiscount: { minGroup: 30, percent: 10 },
-    badge: "NEP 2020",
-    description:
-      "A full day where science, EVS, and life skills meet soil, cows, and village games. Dedicated coordinator, supervised zones, and certificates for every child.",
-    highlights: [
-      "Dedicated farm coordinator",
-      "NEP 2020 activity design",
-      "Participation certificate",
-      "Free FAM visit for teachers",
-    ],
-    featured: true,
-  },
-  {
     id: "family-outing",
-    title: "Family Farm Day",
-    subtitle: "Three generations, one perfect Sunday",
+    title: "Farm Day Outing",
+    subtitle: "Day visit · All inclusive",
     category: "family",
     categories: ["family"],
     image:
       "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80",
-    adultPrice: 1249,
-    childPrice: 899,
-    groupDiscount: { minGroup: 10, percent: 12 },
-    badge: "100% Veg",
+    adultPrice: 1299,
+    childPrice: 1299,
+    packageBadge: "Family & Group Outing",
+    groupDiscount: { minGroup: 30, percent: 10 },
     description:
-      "10AM to 5:30PM of mud, milking, meals, and laughter. Welcome drink, sattvic lunch, hi-tea, and 60+ activities the whole family can share.",
+      "A full day of agri tourism — 60+ activities, sattvic lunch, goushala, bullock carts, village games, and mud bath. One price, all inclusive.",
     highlights: [
-      "60+ farm activities",
-      "Sattvic lunch & hi-tea",
+      "60+ agri tourism activities",
+      "Sattvic farm lunch included",
       "Goushala visit & Gou Puja",
       "Bullock cart rides",
+      "Village games & mud bath",
     ],
-  },
-  {
-    id: "corporate-retreat",
-    title: "Corporate Team Reset",
-    subtitle: "Bonds built away from screens",
-    category: "corporate",
-    categories: ["corporate"],
-    image:
-      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&q=80",
-    adultPrice: 1999,
-    childPrice: 0,
-    groupDiscount: { minGroup: 20, percent: 15 },
-    badge: "From 20 guests",
-    description:
-      "Half-day, full-day, or overnight programs with village tournaments, farm meals, and space to breathe. Custom quotes within two hours on WhatsApp.",
-    highlights: [
-      "Half / full day & overnight options",
-      "Village game tournaments",
-      "All meals included",
-      "Bonfire evening available",
-    ],
+    potteryNote: "Pottery available as paid add-on",
+    waText: "Hi, I want to book a farm day outing",
   },
   {
     id: "night-stay",
-    title: "Overnight Farm Stay",
-    subtitle: "Sleep under skies the city forgot",
+    title: "Farm Night Stay",
+    subtitle: "Overnight stay · All inclusive",
     category: "night-stay",
     categories: ["night-stay", "family", "corporate"],
     image:
       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
     adultPrice: 1999,
-    childPrice: 1499,
-    groupDiscount: { minGroup: 8, percent: 15 },
-    badge: "Bonfire nights",
+    childPrice: 1999,
+    packageBadge: "Overnight Farm Experience",
+    groupDiscount: { minGroup: 30, percent: 10 },
     description:
-      "Full farm day plus night under the stars — bonfire, farm morning, and every meal taken care of. Children below 2 stay free.",
+      "All-day agri tourism, bonfire under open skies, farm stay, and every meal from dinner through breakfast.",
     highlights: [
-      "Full day + overnight stay",
-      "All meals included",
-      "Bonfire evening",
-      "Farm morning experience",
+      "All day agri tourism activities",
+      "Bonfire night under open skies",
+      "All meals — dinner & breakfast",
+      "Farm stay accommodation",
+      "Dawn Goushala & nature trail",
     ],
+    potteryNote: "Pottery available as paid add-on",
+    waText: "Hi, I want to book a farm night stay",
+  },
+  {
+    id: "school-trip",
+    title: "School Agri Tourism Trip",
+    subtitle: "For groups of 30+ students",
+    category: "school",
+    categories: ["school"],
+    image:
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+    adultPrice: 699,
+    childPrice: 499,
+    priceTiers: [
+      { price: 499, label: "per student · without lunch" },
+      { price: 699, label: "per student · with welcome drink & lunch" },
+    ],
+    packageBadge: "★ Most Booked · Schools & Colleges",
+    groupDiscount: { minGroup: 30, percent: 0 },
+    priceNote: "★ Min. 30 students · Group rates apply",
+    description:
+      "NEP 2020-aligned field trips with a dedicated coordinator, supervised zones, certificates, and a curriculum itinerary built for your school.",
+    highlights: [
+      "NEP 2020 aligned activities",
+      "Dedicated on-ground coordinator",
+      "Fenced, supervised activity zones",
+      "Participation certificates",
+      "Customised curriculum itinerary",
+    ],
+    potteryNote: "Pottery available as paid add-on",
+    featured: true,
+    waText: "Hi, I want to plan a school trip",
+  },
+  {
+    id: "corporate-retreat",
+    title: "Corporate Outing",
+    subtitle: "Teams, startups & corporates",
+    category: "corporate",
+    categories: ["corporate"],
+    image:
+      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&q=80",
+    adultPrice: 1299,
+    childPrice: 0,
+    packageBadge: "Corporate Agri Tourism",
+    groupDiscount: { minGroup: 30, percent: 10 },
+    description:
+      "Full-day agri tourism for teams — village tournaments, farm meals, optional bonfire, and custom branding for your event.",
+    highlights: [
+      "Full-day agri tourism programme",
+      "Village game tournaments",
+      "All meals included",
+      "Bonfire evening add-on available",
+      "Custom branding for events",
+    ],
+    potteryNote: "Pottery available as paid add-on",
+    waText: "Hi, I want a corporate outing quote",
   },
   {
     id: "kitty-reunion",
@@ -231,34 +260,29 @@ export const TESTIMONIALS = [
   {
     id: "1",
     name: "Priya Sharma",
-    role: "Mother of two, Banjara Hills",
+    role: "Mother · Banjara Hills, Hyderabad",
     quote:
-      "I have not seen my son this happy in months. He is already asking when we can come back to the farm.",
+      "I haven't seen my son this happy in months. He's already asking when we can come back for another agri tourism day.",
     type: "family" as const,
+    duration: "0:48",
   },
   {
     id: "2",
     name: "Ms. Radha Krishna",
-    role: "Class Teacher, DPS Hyderabad",
+    role: "Class Teacher · DPS Hyderabad",
     quote:
-      "Every activity linked to the curriculum. The children did not realise they were learning — and neither did we complain.",
+      "Every activity linked to the curriculum. The children didn't realise they were learning. Best agri tourism trip we've done.",
     type: "school" as const,
+    duration: "1:02",
   },
   {
     id: "3",
     name: "Vikram Nair",
-    role: "HR Head, Tech Mahindra",
+    role: "HR Head · Tech Mahindra, Hyderabad",
     quote:
-      "My team bonded more in five hours here than in two years of virtual meetings. We are booking again for autumn.",
+      "My team bonded more in five hours here than in two years of virtual meetings.",
     type: "corporate" as const,
-  },
-  {
-    id: "4",
-    name: "School Coordinator",
-    role: "Oakridge International, Hyderabad",
-    quote:
-      "The coordinator handled everything. Zero complaints from parents — we have already blocked three dates for next year.",
-    type: "school" as const,
+    duration: "0:55",
   },
 ];
 
@@ -270,10 +294,11 @@ export const HERO_KEYWORDS = [
 ];
 
 export const HERO_TRUST_STATS = [
-  { value: "4.9★", label: "Google Rated" },
+  { value: "4.9 ★", label: "Average Rating" },
   { value: "10,000+", label: "Families Welcomed" },
   { value: "500+", label: "School Groups" },
-  { value: "#1", label: "Farm Retreat near Hyderabad" },
+  { value: "60+", label: "Agri Tourism Activities" },
+  { value: "#1", label: "Agri Tourism Near Hyderabad" },
 ];
 
 export function formatWhatsAppMessage(booking: BookingData): string {

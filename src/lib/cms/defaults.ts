@@ -131,16 +131,16 @@ export const DEFAULT_SITE_CONTENT: SiteContent = {
       "School Learning Labs",
     ],
     schools: {
-      title: "Trusted by Schools Across Hyderabad",
+      title: "Trusted by schools across Hyderabad",
       list: [
         "Delhi Public School",
         "Oakridge International",
         "Meridian School",
         "Johnson Grammar",
-        "Chirec International",
+        "Chirec Public School",
         "Bharatiya Vidya Bhavan",
-        "The Shri Ram School",
-        "Glendale Academy",
+        "The Hyderabad Public School",
+        "Sreenidhi International",
       ],
       famTitle: "Free Familiarisation Visit for Teachers",
       famBody:

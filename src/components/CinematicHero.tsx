@@ -53,20 +53,20 @@ export default function CinematicHero() {
 
   return (
     <section className="relative min-h-[100dvh] min-h-[600px] w-full overflow-hidden">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <video
           ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80"
-          className="h-full w-full object-cover"
+          className="absolute left-1/2 top-1/2 h-full w-full min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover object-center lg:min-h-[120%] lg:min-w-[120%] lg:object-cover"
         >
           <source src={HERO_VIDEO_URL} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight-crimson/80 via-deep-crimson/50 to-midnight-crimson/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight-crimson/75 via-deep-crimson/45 to-midnight-crimson/85 lg:from-midnight-crimson/55 lg:via-deep-crimson/35 lg:to-midnight-crimson/70" />
       </div>
 
       {parallaxEnabled &&
@@ -164,48 +164,22 @@ export default function CinematicHero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7 }}
-          className="mx-4 mb-24 max-w-3xl rounded-2xl border border-brand-gold/30 bg-midnight-crimson/88 px-4 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md sm:mx-auto sm:mb-28 sm:px-6 lg:mb-20"
+          className="mx-4 mt-auto max-w-3xl rounded-2xl border border-brand-gold/30 bg-midnight-crimson/88 px-4 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md sm:mx-auto sm:px-6 mb-8 sm:mb-10 lg:mb-12"
         >
-          <div className="grid grid-cols-2 gap-x-3 gap-y-5 sm:flex sm:flex-wrap sm:items-stretch sm:justify-center sm:gap-y-4">
-            {HERO_TRUST_STATS.map((stat, i) => (
+          <div className="grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-3 lg:gap-y-0">
+            {HERO_TRUST_STATS.map((stat) => (
               <div
                 key={stat.label}
-                className="flex items-center justify-center sm:items-stretch"
+                className="w-full px-1 text-center sm:px-2"
               >
-                {i > 0 && (
-                  <span
-                    className="mx-3 hidden h-12 w-px shrink-0 bg-brand-gold/70 sm:block"
-                    aria-hidden
-                  />
-                )}
-                <div className="w-full px-1 text-center sm:min-w-[5.5rem] sm:px-3">
-                  <p className="font-serif text-lg font-semibold leading-none tabular-nums text-warm-gold sm:text-2xl">
-                    {stat.value}
-                  </p>
-                  <p className="mt-1.5 text-[8px] font-medium uppercase leading-snug tracking-[0.1em] text-ivory sm:mt-2 sm:text-[10px] sm:tracking-[0.14em]">
-                    {stat.label}
-                  </p>
-                </div>
+                <p className="font-serif text-lg font-semibold leading-none tabular-nums text-warm-gold sm:text-2xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1.5 text-[8px] font-medium uppercase leading-snug tracking-[0.1em] text-ivory sm:mt-2 sm:text-[10px] sm:tracking-[0.14em]">
+                  {stat.label}
+                </p>
               </div>
             ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 sm:bottom-8"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        >
-          <div className="flex flex-col items-center gap-1.5 text-ivory/50">
-            <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path
-                d="M12 5v14M5 12l7 7 7-7"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
           </div>
         </motion.div>
       </div>

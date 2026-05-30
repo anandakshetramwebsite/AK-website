@@ -22,24 +22,26 @@ export default function BuiltByCredit({ tone = "dark" }: Props) {
         : "text-linen group-hover:text-brand-gold";
 
   return (
-    <div className={`mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-3 ${textClass}`}>
-      <span className="text-sm font-medium">Built by</span>
+    <div
+      className={`flex flex-col items-center justify-center gap-1 text-[10px] leading-tight sm:flex-row sm:gap-1.5 sm:text-[11px] ${textClass}`}
+    >
+      <span className="font-medium opacity-80">Built by</span>
       <a
         href={AI_DEVELOPER_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-3 transition-opacity hover:opacity-90"
+        className="group inline-flex items-center gap-1.5 transition-opacity hover:opacity-90"
         aria-label="AI Developer India — visit aideveloperindia.store"
       >
         <Image
           src="/ai-developer-logo.png"
-          alt="AI Developer India logo"
-          width={44}
-          height={44}
-          className="h-11 w-11 shrink-0 object-contain object-bottom"
+          alt=""
+          width={18}
+          height={18}
+          className="h-[18px] w-[18px] shrink-0 object-contain"
           unoptimized
         />
-        <span className={`text-sm font-semibold transition-colors ${nameClass}`}>
+        <span className={`font-medium transition-colors ${nameClass}`}>
           AI Developer India
         </span>
       </a>

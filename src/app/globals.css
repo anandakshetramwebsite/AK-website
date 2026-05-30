@@ -75,10 +75,81 @@
   .heading-section {
     @apply font-serif text-3xl font-light italic leading-tight sm:text-4xl lg:text-5xl;
   }
+
+  .school-trust-marquee:hover .school-trust-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .school-trust-marquee-track {
+    animation: school-marquee 28s linear infinite;
+  }
+
+  @keyframes school-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .school-badge-shine {
+    --shine-delay: 0s;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .school-badge-shine::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -130%;
+    z-index: 1;
+    width: 42%;
+    height: 220%;
+    background: linear-gradient(
+      105deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.06) 38%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.06) 62%,
+      transparent 100%
+    );
+    transform: skewX(-20deg);
+    animation: school-badge-blade 3.4s ease-in-out infinite;
+    animation-delay: var(--shine-delay);
+    pointer-events: none;
+  }
+
+  @keyframes school-badge-blade {
+    0% {
+      left: -130%;
+    }
+    45%,
+    100% {
+      left: 150%;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .school-trust-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    gap: 0.5rem 0;
+  }
+
+  .school-badge-shine::after {
+    animation: none;
+    display: none;
   }
 }

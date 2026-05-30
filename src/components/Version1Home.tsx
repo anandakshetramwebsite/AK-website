@@ -1,8 +1,13 @@
 import CinematicHero from "@/components/CinematicHero";
 import ProgramHub from "@/components/ProgramHub";
-import ExperienceGrid from "@/components/ExperienceGrid";
+import AnandaQuestion from "@/components/AnandaQuestion";
+import FarmActivities from "@/components/FarmActivities";
+import SchoolPartners from "@/components/SchoolPartners";
 import Testimonials from "@/components/Testimonials";
 import MediaShowcase from "@/components/MediaShowcase";
+import JoinAnandaBand from "@/components/JoinAnandaBand";
+import FaqSection from "@/components/FaqSection";
+import FinalInvitation from "@/components/FinalInvitation";
 import Footer from "@/components/Footer";
 import FallingMangoes from "@/components/FallingMangoes";
 import { BookingProvider } from "@/context/BookingContext";
@@ -17,7 +22,7 @@ export default async function Version1Home() {
       "Candid days on the farm — families, students, and teams in their element.",
     instagram: {
       ...content.media.instagram,
-      headline: "@anandakshethram",
+      headline: "@anandakshethram · Agri Tourism Hyderabad",
       note: "Follow along for harvest days, school trips, bonfire nights, and the quiet joy between them.",
     },
   };
@@ -27,10 +32,15 @@ export default async function Version1Home() {
       <FallingMangoes />
       <main className="relative overflow-x-clip">
         <CinematicHero />
+        <AnandaQuestion />
+        <FarmActivities />
         <ProgramHub />
-        <ExperienceGrid />
+        <SchoolPartners />
         <Testimonials />
         <MediaShowcase media={media} variant="forest" hideVideos />
+        <JoinAnandaBand />
+        <FaqSection />
+        <FinalInvitation />
       </main>
       <Footer />
     </BookingProvider>

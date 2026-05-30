@@ -101,8 +101,8 @@ export default function HeroMangoFestivalPromo() {
               <span className="hidden h-px w-5 bg-brand-gold/70 sm:block" aria-hidden />
             </div>
 
-            <p className="mt-2 text-[9px] uppercase tracking-[0.08em] text-gold-mist/90 sm:text-[10px] sm:tracking-[0.1em]">
-              {MANGO_FESTIVAL_EVENT.dateLine}
+            <p className="mt-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-gold-mist/90 sm:text-[10px] sm:tracking-[0.14em]">
+              {MANGO_FESTIVAL_EVENT.dateWeekday}
             </p>
 
             <p className="mt-2 text-xs leading-relaxed text-ivory/80">

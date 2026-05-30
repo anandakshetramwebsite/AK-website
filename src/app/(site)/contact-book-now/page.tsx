@@ -38,8 +38,7 @@ export default async function ContactBookNowPage() {
           <article className="rounded-2xl border border-brand-crimson/15 bg-warm-cream p-6">
             <h2 className="font-serif text-3xl text-brand-crimson">Direct Contact</h2>
             <ul className="mt-4 space-y-2 text-midnight-crimson/85">
-              <li>• WhatsApp: {content.contact.phone}</li>
-              <li>• Call: {content.contact.phone}</li>
+              <li>• {content.contact.phone}</li>
               <li>• {content.contact.mapsNote}</li>
             </ul>
             <a

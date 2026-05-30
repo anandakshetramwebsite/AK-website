@@ -4,9 +4,11 @@ import { useEffect } from "react";
 
 type Props = {
   permalink: string;
+  /** Tighter embed for homepage side column */
+  compact?: boolean;
 };
 
-export default function InstagramReelEmbed({ permalink }: Props) {
+export default function InstagramReelEmbed({ permalink, compact = false }: Props) {
   useEffect(() => {
     let cancelled = false;
 
@@ -41,23 +43,37 @@ export default function InstagramReelEmbed({ permalink }: Props) {
   }, [permalink]);
 
   return (
-    <div className="flex justify-center overflow-hidden rounded-2xl border border-brand-crimson/15 bg-ivory p-2">
-      <blockquote
-        className="instagram-media"
-        data-instgrm-captioned
-        data-instgrm-permalink={permalink}
-        data-instgrm-version="14"
-        style={{
-          background: "#FFF",
-          border: 0,
-          borderRadius: 3,
-          margin: 1,
-          maxWidth: 540,
-          minWidth: 326,
-          padding: 0,
-          width: "99.375%",
-        }}
-      />
+    <div
+      className={`mx-auto w-full overflow-hidden rounded-2xl border bg-ivory p-2 ${
+        compact
+          ? "max-w-[300px] border-forest/10 lg:max-w-none"
+          : "max-w-[340px] border-ivory/15 sm:max-w-[380px] lg:mx-0 lg:max-w-[400px]"
+      }`}
+    >
+      <div
+        className={`overflow-y-auto overscroll-contain rounded-xl scrollbar-hide ${
+          compact
+            ? "max-h-[min(55vh,420px)] sm:max-h-[380px] lg:max-h-[340px]"
+            : "max-h-[min(72vh,560px)] sm:max-h-[min(68vh,520px)] lg:max-h-[480px]"
+        }`}
+      >
+        <blockquote
+          className="instagram-media !mx-auto !mb-0 !min-w-0"
+          data-instgrm-captioned
+          data-instgrm-permalink={permalink}
+          data-instgrm-version="14"
+          style={{
+            background: "#FFF",
+            border: 0,
+            borderRadius: 3,
+            margin: "0 auto",
+            maxWidth: "100%",
+            minWidth: 280,
+            padding: 0,
+            width: "100%",
+          }}
+        />
+      </div>
     </div>
   );
 }

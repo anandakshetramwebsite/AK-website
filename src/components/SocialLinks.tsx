@@ -3,6 +3,8 @@ import type { SiteContent } from "@/lib/cms/types";
 type Props = {
   media: SiteContent["media"];
   className?: string;
+  /** light = ivory strip; onDark = forest-green Instagram band */
+  tone?: "light" | "onDark";
 };
 
 const LABELS: Record<keyof SiteContent["media"]["social"], string> = {
@@ -12,11 +14,16 @@ const LABELS: Record<keyof SiteContent["media"]["social"], string> = {
   facebook: "Facebook",
 };
 
-export default function SocialLinks({ media, className = "" }: Props) {
+export default function SocialLinks({ media, className = "", tone = "light" }: Props) {
   const entries = Object.entries(media.social) as [
     keyof SiteContent["media"]["social"],
     string,
   ][];
+
+  const pillClass =
+    tone === "onDark"
+      ? "rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2.5 text-sm font-semibold text-ivory transition-colors hover:border-brand-gold hover:bg-ivory/15 hover:text-brand-gold"
+      : "rounded-full border border-brand-crimson/20 bg-ivory px-4 py-2 text-sm font-semibold text-brand-crimson transition-colors hover:border-brand-gold hover:text-brand-gold";
 
   return (
     <div className={`flex flex-wrap gap-3 ${className}`}>
@@ -26,7 +33,7 @@ export default function SocialLinks({ media, className = "" }: Props) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-full border border-brand-crimson/20 bg-ivory px-4 py-2 text-sm font-semibold text-brand-crimson transition-colors hover:border-brand-gold hover:text-brand-gold"
+          className={pillClass}
         >
           {LABELS[key]}
         </a>

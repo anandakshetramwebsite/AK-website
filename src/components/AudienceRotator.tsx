@@ -21,34 +21,31 @@ export default function AudienceRotator({ variant = "light" }: Props) {
   }, []);
 
   return (
-    <div
-      className={`flex flex-col items-center justify-center gap-2 sm:flex-row ${
-        isLight ? "text-forest" : "text-ivory"
+    <p
+      className={`flex flex-wrap items-baseline justify-center gap-x-1.5 text-center text-base leading-snug md:text-lg ${
+        isLight ? "text-forest/80" : "text-ivory/90"
       }`}
     >
-      <p
-        className={`text-base md:text-lg ${
-          isLight ? "text-forest/80" : "text-ivory/90"
-        }`}
+      <span>A peaceful day for</span>
+      <span
+        className="relative inline-block h-[1.35em] min-w-[10.5rem] overflow-hidden sm:min-w-[11.5rem] md:min-w-[13.5rem]"
+        aria-live="polite"
       >
-        A peaceful day for
-      </p>
-      <div className="relative h-8 w-full min-w-0 max-w-[280px] overflow-hidden sm:min-w-[240px] md:h-9">
         <AnimatePresence mode="wait">
           <motion.span
             key={keywordIndex}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: "0.5em" }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.45 }}
-            className={`absolute inset-0 font-serif text-lg font-semibold italic md:text-xl ${
+            exit={{ opacity: 0, y: "-0.5em" }}
+            transition={{ duration: 0.4 }}
+            className={`absolute inset-x-0 bottom-0 whitespace-nowrap font-serif text-lg font-semibold italic leading-none md:text-xl ${
               isLight ? "text-brand-crimson" : "text-brand-gold"
             }`}
           >
             {HERO_KEYWORDS[keywordIndex]}
           </motion.span>
         </AnimatePresence>
-      </div>
-    </div>
+      </span>
+    </p>
   );
 }

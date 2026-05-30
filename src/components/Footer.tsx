@@ -45,6 +45,22 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href="#school-trust"
+                  className="transition-colors hover:text-brand-gold"
+                >
+                  School Partnerships
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  className="transition-colors hover:text-brand-gold"
+                >
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a
                   href={MANGO_FESTIVAL_FORM}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -113,31 +129,24 @@ export default function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-ivory/70">
               <li>
                 <a
-                  href="https://wa.me/917799900060"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  WhatsApp: +91 77999 00060
-                </a>
-              </li>
-              <li>
-                <a
                   href="tel:+917799900060"
                   className="transition-colors hover:text-brand-gold"
                 >
-                  Call: +91 77999 00060
+                  +91 77999 00060
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-ivory/10 pt-8 text-center text-xs text-ivory/50">
-          <p>
+        <div className="mt-12 border-t border-ivory/10 pt-8 text-center">
+          <p className="text-sm text-ivory/60">
             © {new Date().getFullYear()} Ananda Kshethram. All rights reserved.
           </p>
-          <BuiltByCredit tone="light" />
+        </div>
+
+        <div className="mt-6 pb-2 pt-2 text-center">
+          <BuiltByCredit tone="dark" />
         </div>
       </div>
     </footer>

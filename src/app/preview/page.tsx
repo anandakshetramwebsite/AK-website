@@ -63,7 +63,7 @@ export default function PreviewVersionsPage() {
         </p>
       </div>
       <footer className="mx-auto mt-16 max-w-4xl border-t border-brand-crimson/15 pt-6 text-center">
-        <p className="text-xs text-midnight-crimson/60">
+        <p className="text-sm text-midnight-crimson/60">
           © {new Date().getFullYear()} Ananda Kshethram. All rights reserved.
         </p>
         <BuiltByCredit tone="cream" />

@@ -17,40 +17,52 @@ export default function MediaShowcase({
 }: Props) {
   const isForest = variant === "forest";
 
+  if (isForest) {
+    return (
+      <section id="videos" className="section-pad bg-linen-dark">
+        <div className="container-page">
+          <div className="grid items-start gap-8 lg:grid-cols-[1fr_300px] lg:gap-10 xl:grid-cols-[1fr_320px]">
+            <div className="text-center lg:text-left">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
+                @anandakshethram · Agri Tourism Hyderabad
+              </p>
+              <h2 className="heading-section mt-3 text-forest">
+                {media.sectionTitle}
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-forest/70 sm:text-base lg:mx-0">
+                {media.instagram.note}
+              </p>
+
+              <SocialLinks
+                media={media}
+                tone="light"
+                className="mt-6 justify-center lg:justify-start"
+              />
+            </div>
+
+            <div className="mx-auto w-full max-w-[300px] lg:mx-0 lg:max-w-none lg:justify-self-end">
+              <InstagramReelEmbed
+                permalink={media.instagram.reelUrl}
+                compact
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section
-      id="videos"
-      className={
-        isForest ? "section-pad bg-linen-dark" : "section-pad bg-warm-cream"
-      }
-    >
+    <section id="videos" className="section-pad bg-warm-cream">
       <div className="container-page">
         <div className="text-center">
-          <p
-            className={
-              isForest
-                ? "text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold"
-                : "text-xs uppercase tracking-[0.2em] text-brand-gold"
-            }
-          >
-            {isForest ? "From the Farm" : "Watch & Follow"}
+          <p className="text-xs uppercase tracking-[0.2em] text-brand-gold">
+            Watch & Follow
           </p>
-          <h2
-            className={
-              isForest
-                ? "heading-section mt-3 text-forest"
-                : "heading-section mt-3 text-brand-crimson"
-            }
-          >
-            {isForest ? "Moments Worth Sharing" : media.sectionTitle}
+          <h2 className="heading-section mt-3 text-brand-crimson">
+            {media.sectionTitle}
           </h2>
-          <p
-            className={
-              isForest
-                ? "mx-auto mt-4 max-w-2xl text-forest/70"
-                : "mx-auto mt-4 max-w-2xl text-midnight-crimson/80"
-            }
-          >
+          <p className="mx-auto mt-4 max-w-2xl text-midnight-crimson/80">
             {media.sectionSubtitle}
           </p>
         </div>
@@ -63,82 +75,52 @@ export default function MediaShowcase({
           </div>
         )}
 
-        <div
-          className={
-            isForest
-              ? "mt-10 rounded-2xl bg-forest-green px-4 py-10 text-ivory sm:mt-12 sm:rounded-3xl sm:px-6 sm:py-12 md:px-10"
-              : hideVideos
-                ? "mt-6"
-                : "mt-12"
-          }
-        >
-          <p
-            className={
-              isForest
-                ? "text-center text-xs uppercase tracking-[0.22em] text-brand-gold"
-                : undefined
-            }
-          >
-            {isForest ? "@anandakshethram" : null}
-          </p>
-          <h3
-            className={
-              isForest
-                ? "mt-2 text-center font-serif text-2xl font-light italic text-ivory sm:text-3xl md:text-4xl"
-                : "text-center font-serif text-2xl text-brand-crimson"
-            }
-          >
-            {isForest ? media.sectionTitle : media.instagram.headline}
-          </h3>
-          <p
-            className={
-              isForest
-                ? "mt-2 text-center text-sm text-ivory/75"
-                : "mt-2 text-center text-sm text-midnight-crimson/80"
-            }
-          >
-            {media.instagram.note}
-          </p>
+        <div className={hideVideos ? "mt-6" : "mt-12"}>
+          <div className="mx-auto max-w-3xl text-center">
+            <h3 className="font-serif text-2xl text-brand-crimson">
+              {media.instagram.headline}
+            </h3>
+            <p className="mt-2 text-sm text-midnight-crimson/80">
+              {media.instagram.note}
+            </p>
+          </div>
+
           <div className="mt-6 grid gap-6 sm:mt-8 sm:gap-8 lg:grid-cols-2 lg:items-start">
             <InstagramReelEmbed permalink={media.instagram.reelUrl} />
             <div className="flex flex-col justify-center gap-4">
-              <SocialLinks media={media} className="justify-center lg:justify-start" />
-              <a
-                href={media.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={
-                  isForest
-                    ? "text-center text-sm font-semibold text-ivory hover:text-brand-gold lg:text-left"
-                    : "text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
-                }
-              >
-                Follow @anandakshethram →
-              </a>
-              <a
-                href={media.social.youtubeChannel}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={
-                  isForest
-                    ? "text-center text-sm font-semibold text-ivory/90 hover:text-brand-gold lg:text-left"
-                    : "text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
-                }
-              >
-                Subscribe on YouTube →
-              </a>
+              <SocialLinks
+                media={media}
+                tone="light"
+                className="justify-center lg:justify-start"
+              />
+              <div className="flex flex-col gap-3">
+                <a
+                  href={media.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
+                >
+                  Follow @anandakshethram →
+                </a>
+                <a
+                  href={media.social.youtubeChannel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
+                >
+                  Subscribe on YouTube →
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {!isForest && (
-          <p className="mt-8 text-center text-sm text-midnight-crimson/60">
-            <Link href="/gallery" className="underline hover:text-brand-gold">
-              View gallery
-            </Link>{" "}
-            for more moments from the farm.
-          </p>
-        )}
+        <p className="mt-8 text-center text-sm text-midnight-crimson/60">
+          <Link href="/gallery" className="underline hover:text-brand-gold">
+            View gallery
+          </Link>{" "}
+          for more moments from the farm.
+        </p>
       </div>
     </section>
   );
