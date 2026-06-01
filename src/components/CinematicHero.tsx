@@ -1,7 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HERO_TRUST_STATS, MAPS_URL, FARM_LOCATION } from "@/lib/constants";
+import {
+  FARM_LOCATION,
+  HERO_TRUST_STATS,
+  MAPS_URL,
+  MANGO_FESTIVAL_ON_SITE,
+} from "@/lib/constants";
 import HeroImageCarousel from "@/components/HeroImageCarousel";
 import HeroMangoFestivalPromo from "@/components/HeroMangoFestivalPromo";
 
@@ -19,7 +24,7 @@ export default function CinematicHero() {
       </div>
 
       <div className="group/hero relative z-20 flex min-h-[100dvh] min-h-[600px] flex-col">
-        <HeroMangoFestivalPromo />
+        {MANGO_FESTIVAL_ON_SITE ? <HeroMangoFestivalPromo /> : null}
 
         <div className="flex flex-1 flex-col items-center justify-start px-4 pb-8 pt-4 text-center sm:px-6 sm:pb-10 sm:pt-6">
           <motion.div

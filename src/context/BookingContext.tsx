@@ -2,13 +2,13 @@
 
 import React, { createContext, useContext, useState, useCallback } from "react";
 import type { BookingData } from "@/lib/constants";
-import { PROGRAMS } from "@/lib/constants";
+import { SITE_PROGRAMS, type Program } from "@/lib/constants";
 
 interface BookingContextValue {
   booking: BookingData;
   updateBooking: (data: Partial<BookingData>) => void;
   resetBooking: () => void;
-  selectedProgram: (typeof PROGRAMS)[number] | undefined;
+  selectedProgram: Program | undefined;
   expandedProgramId: string | null;
   setExpandedProgramId: (id: string | null) => void;
   activeFilter: string;
@@ -41,7 +41,9 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
     setBooking(defaultBooking);
   }, []);
 
-  const selectedProgram = PROGRAMS.find((p) => p.id === booking.programId);
+  const selectedProgram = SITE_PROGRAMS.find(
+    (p) => p.id === booking.programId
+  );
 
   return (
     <BookingContext.Provider

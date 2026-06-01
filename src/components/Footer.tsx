@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BRAND_LOGO, MAPS_URL, MANGO_FESTIVAL_FORM } from "@/lib/constants";
+import { BRAND_LOGO, MAPS_URL } from "@/lib/constants";
 import BuiltByCredit from "@/components/BuiltByCredit";
 import FooterSocialIcons from "@/components/FooterSocialIcons";
 
@@ -13,7 +13,6 @@ const EXPLORE_LINKS = [
   { href: "#school-trust", label: "School Trips" },
   { href: "#book", label: "Book" },
   { href: "#faq", label: "FAQ" },
-  { href: MANGO_FESTIVAL_FORM, label: "Mango Festival", external: true },
   { href: MAPS_URL, label: "Directions", external: true },
 ];
 

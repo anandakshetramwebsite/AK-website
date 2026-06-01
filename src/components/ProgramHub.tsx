@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { PROGRAMS } from "@/lib/constants";
+import { SITE_PROGRAMS } from "@/lib/constants";
 import { useBooking } from "@/context/BookingContext";
 import ProgramCard from "@/components/ui/ProgramCard";
 import BookingPanel from "@/components/ui/BookingPanel";
@@ -22,13 +22,13 @@ export default function ProgramHub() {
   const { activeFilter, setActiveFilter } = useBooking();
 
   const filteredPrograms = useMemo(() => {
-    if (activeFilter === "all") return PROGRAMS;
+    if (activeFilter === "all") return SITE_PROGRAMS;
     if (activeFilter === "events") {
-      return PROGRAMS.filter(
-        (p) => p.id === "mango-festival" || p.id === "kitty-reunion"
-      );
+      return SITE_PROGRAMS.filter((p) => p.id === "kitty-reunion");
     }
-    return PROGRAMS.filter((p) => p.categories.includes(activeFilter as never));
+    return SITE_PROGRAMS.filter((p) =>
+      p.categories.includes(activeFilter as never)
+    );
   }, [activeFilter]);
 
   return (

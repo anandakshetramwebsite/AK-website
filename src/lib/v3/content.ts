@@ -168,8 +168,8 @@ export const v3Experiences = [
   },
   {
     name: "Seasonal Festivals",
-    short: "Harvest · Mango · Sankranti.",
-    desc: "Farm festivals, harvest celebrations, and seasonal experiences that change with the land — from Mango Festival to Sankranti.",
+    short: "Harvest · Sankranti · Seasonal.",
+    desc: "Farm festivals, harvest celebrations, and seasonal experiences that change with the land.",
   },
 ];
 
