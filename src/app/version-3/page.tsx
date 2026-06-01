@@ -49,7 +49,7 @@ const structuredData = {
           {
             "@type": "Offer",
             name: "Farm Day Outing",
-            price: "1299",
+            price: "1250",
             priceCurrency: "INR",
             description:
               "All-inclusive farm day outing with 60+ activities, sattvic lunch, goushala visit",
@@ -72,7 +72,7 @@ const structuredData = {
           {
             "@type": "Offer",
             name: "Corporate Outing",
-            price: "1299",
+            price: "1250",
             priceCurrency: "INR",
             description: "Standard corporate agri tourism outing per person",
           },
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ananda Kshethram — Best Agri Tourism near Hyderabad",
     description:
-      "Farm outings ₹1,299 · Night stays · School trips from ₹499 · Corporate retreats. 60 min from Gachibowli, Hyderabad.",
+      "Farm outings ₹1,250 · Night stays · School trips from ₹499 · Corporate retreats. 60 min from Gachibowli, Hyderabad.",
   },
 };
 

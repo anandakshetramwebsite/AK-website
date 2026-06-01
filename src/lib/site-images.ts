@@ -6,6 +6,38 @@ const img = (path: string) => `/images/${path}`;
 
 export const HERO_POSTER = img("main-entrance.jpg");
 
+/** Homepage hero background carousel (client farm photography) */
+export const HERO_CAROUSEL_SLIDES = [
+  {
+    src: img("farm-stay-shed.jpg"),
+    alt: "AK Signature Shed at Ananda Kshethram",
+  },
+  {
+    src: img("sloka-school-group.jpg"),
+    alt: "Shloka school trip group photo at the farm",
+  },
+  {
+    src: img("corporate-team.jpg"),
+    alt: "Corporate team outing at Ananda Kshethram",
+  },
+  {
+    src: img("kitty-party.jpg"),
+    alt: "Kitty party celebration on the farm",
+  },
+  {
+    src: img("family-at-rachabanda.jpg"),
+    alt: "Family day outing at Ananda Kshethram",
+  },
+  {
+    src: img("farm-train-ride.jpg"),
+    alt: "Farm train ride through the orchards",
+  },
+  {
+    src: img("dandiya-night.jpg"),
+    alt: "Dandiya night celebration at the farm",
+  },
+] as const;
+
 /** Featured activity cards (ActivitiesHighlight) */
 export const ACTIVITY_IMAGES: Record<string, string> = {
   "farm-train": img("farm-train-ride.jpg"),
@@ -31,7 +63,7 @@ export const PILLAR_IMAGES: Record<string, string> = {
 /** Program hub cards */
 export const PROGRAM_IMAGES: Record<string, string> = {
   "family-outing": img("family-in-goushala.jpg"),
-  "night-stay": img("farm-stay-shed.jpg"),
+  "night-stay": img("farm-night-stay-guest-rooms.jpg"),
   "school-trip": img("sloka-school-group.jpg"),
   "corporate-retreat": img("corporate-team.jpg"),
   "kitty-reunion": img("kitty-party.jpg"),
@@ -48,7 +80,7 @@ export const DEDICATED_GALLERY_IMAGES: Record<
     img("farm-lunch.jpg"),
   ],
   "night-stay": [
-    img("farm-stay-shed.jpg"),
+    img("farm-night-stay-guest-rooms.jpg"),
     img("farm-lunch-2.jpg"),
     img("kids-in-goushala.jpg"),
   ],

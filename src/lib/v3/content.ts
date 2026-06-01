@@ -9,7 +9,7 @@ export const v3Seo = {
   title:
     "Ananda Kshethram — Best Agri Tourism & Farm Retreat near Hyderabad | 60 Min from Gachibowli",
   description:
-    "Ananda Kshethram is Hyderabad's top-rated agri tourism destination — 60 minutes from Gachibowli. Farm day outings from ₹1,299, overnight farm stays, school trips ₹499, corporate retreats & summer camps. Telangana's most loved farm experience.",
+    "Ananda Kshethram is Hyderabad's top-rated agri tourism destination — 60 minutes from Gachibowli. Farm day outings from ₹1,250, overnight farm stays, school trips ₹499, corporate retreats & summer camps. Telangana's most loved farm experience.",
   keywords:
     "agri tourism Hyderabad, farm outing near Hyderabad, farm stay Hyderabad, school trip farm Hyderabad, agri tourism near Gachibowli, vaksana farms Hyderabad, farm retreat Telangana, nature outing Hyderabad, village experience Hyderabad, best farm near Hyderabad, corporate outing Hyderabad, summer camp Hyderabad, farm day outing, ananda kshethram, agri tourism near me, farm school trip Hyderabad, organic farm Hyderabad, goushala Hyderabad, bullock cart ride Hyderabad, mud bath Hyderabad, night stay farm Hyderabad",
 };
@@ -207,7 +207,7 @@ export const v3Packages = [
     badge: "Family & Group Outing",
     name: "Farm Day Outing",
     sub: "Day visit · All inclusive",
-    price: "₹1,299",
+    price: "₹1,250",
     suffix: "per person · all inclusive",
     discount: "★ 30+ group discounts available",
     features: [
@@ -266,7 +266,7 @@ export const v3Packages = [
     badge: "Corporate Agri Tourism",
     name: "Corporate Outing",
     sub: "Teams, startups & corporates",
-    price: "₹1,299",
+    price: "₹1,250",
     suffix: "per person · standard package",
     discount: "★ 30+ group discounts available",
     features: [

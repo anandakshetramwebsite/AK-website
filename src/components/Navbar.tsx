@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { BRAND_LOGO, WHATSAPP_PHONE } from "@/lib/constants";
+import { BRAND_LOGO } from "@/lib/constants";
 import { SINGLE_PAGE_NAV } from "@/lib/single-page-nav";
 
 const BRAND_WORDS = ["Ananda", "Kshethram"] as const;
@@ -69,7 +69,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <ul className="hidden items-center gap-6 lg:ml-auto lg:flex xl:gap-8">
           {SINGLE_PAGE_NAV.map((link) => (
             <li key={link.label}>
               <a
@@ -81,23 +81,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-        <div className="flex items-center gap-2">
-          <a
-            href={`https://wa.me/${WHATSAPP_PHONE}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-ivory/40 px-4 py-2 text-center text-sm font-semibold text-ivory transition-all hover:border-mango hover:text-mango"
-          >
-            WhatsApp
-          </a>
-          <a
-            href="#programs"
-            className="rounded-full bg-mango px-5 py-2 text-center text-sm font-semibold text-forest shadow-lg transition-all hover:scale-105"
-          >
-            Book Now
-          </a>
-        </div>
       </nav>
     </motion.header>
   );

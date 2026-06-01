@@ -1,58 +1,32 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { HERO_TRUST_STATS, HERO_VIDEO_URL, MAPS_URL, FARM_LOCATION } from "@/lib/constants";
-import { HERO_POSTER } from "@/lib/site-images";
+import { HERO_TRUST_STATS, MAPS_URL, FARM_LOCATION } from "@/lib/constants";
+import HeroImageCarousel from "@/components/HeroImageCarousel";
+import HeroMangoFestivalPromo from "@/components/HeroMangoFestivalPromo";
 
 const HERO_DESCRIPTION =
   "Experience Hyderabad's First Agri Tourism Hub and Only Pure Veg Farm Retreat. Enjoy Family Day Outings, Farm Night Stays, School Trips, Corporate Team Outings, Life Skills Summer Camps, Celebrations, and Authentic Village Experiences.";
-import HeroMangoFestivalPromo from "@/components/HeroMangoFestivalPromo";
 
 export default function CinematicHero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = true;
-    const play = () => {
-      void video.play().catch(() => {});
-    };
-    if (video.readyState >= 2) play();
-    else video.addEventListener("loadeddata", play, { once: true });
-    return () => video.removeEventListener("loadeddata", play);
-  }, []);
-
   return (
     <section id="top" className="relative min-h-[100dvh] min-h-[600px] w-full overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={HERO_POSTER}
-          className="absolute left-1/2 top-1/2 h-full w-full min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover object-center lg:min-h-[120%] lg:min-w-[120%] lg:object-cover"
-        >
-          <source src={HERO_VIDEO_URL} type="video/mp4" />
-        </video>
+        <HeroImageCarousel />
         <div className="absolute inset-0 bg-gradient-to-b from-midnight-crimson/80 via-midnight-crimson/50 to-midnight-crimson/85" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_45%,rgba(58,8,8,0.72)_0%,transparent_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-midnight-crimson/90 via-transparent to-forest-green/30" />
       </div>
 
-      <div className="relative z-20 flex min-h-[100dvh] min-h-[600px] flex-col">
+      <div className="group/hero relative z-20 flex min-h-[100dvh] min-h-[600px] flex-col">
         <HeroMangoFestivalPromo />
 
-        <div className="flex flex-1 flex-col items-center justify-center px-4 pb-4 pt-20 text-center sm:px-6 sm:pt-24">
+        <div className="flex flex-1 flex-col items-center justify-start px-4 pb-8 pt-4 text-center sm:px-6 sm:pb-10 sm:pt-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
-            className="w-full max-w-3xl"
+            className="w-full max-w-3xl pt-6 sm:pt-8 group-[:not(:has(.hero-event-promo))]/hero:pt-[5.25rem] sm:group-[:not(:has(.hero-event-promo))]/hero:pt-[5.75rem]"
           >
             <div className="mx-auto flex max-w-xl flex-wrap justify-center gap-2">
               <span className="rounded-full border border-brand-gold/60 bg-brand-gold/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-warm-gold sm:text-[11px]">
@@ -101,7 +75,7 @@ export default function CinematicHero() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="h-9 w-9 shrink-0 text-warm-gold transition-transform group-hover:scale-105 sm:h-12 sm:w-12"
+                    className="relative h-9 w-9 shrink-0 -translate-y-1 translate-x-1 text-warm-gold transition-transform group-hover:scale-105 sm:h-12 sm:w-12 sm:-translate-y-1.5 sm:translate-x-1.5"
                     aria-hidden
                   >
                     <path
