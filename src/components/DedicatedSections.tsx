@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { DEDICATED_SECTIONS } from "@/lib/constants";
 import { DEDICATED_GALLERY_IMAGES } from "@/lib/site-images";
@@ -95,16 +94,13 @@ export default function DedicatedSections() {
                   </footer>
                 </blockquote>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <Link
-                    href={block.href}
-                    className="text-sm font-semibold text-forest-green hover:text-brand-crimson"
-                  >
-                    View details
-                  </Link>
-                </div>
-
-                <SectionEnquiryBar waText={block.waText} actions={["enquire"]} compact />
+                <SectionEnquiryBar
+                  waText={block.waText}
+                  enquireLabel={block.enquireLabel}
+                  actions={["enquire"]}
+                  compact
+                  className="mt-4"
+                />
               </div>
 
               <div className="grid grid-cols-3 gap-2">

@@ -585,6 +585,7 @@ export interface DedicatedSection {
   testimonial: { quote: string; attr: string };
   href: string;
   waText: string;
+  enquireLabel: string;
 }
 
 export const DEDICATED_SECTIONS: DedicatedSection[] = [
@@ -614,6 +615,7 @@ export const DEDICATED_SECTIONS: DedicatedSection[] = [
     },
     href: "/family-outings",
     waText: "Hi, I want to plan a family day outing at Ananda Kshethram",
+    enquireLabel: "Plan Your Family Day",
   },
   {
     id: "night-stay",
@@ -641,6 +643,7 @@ export const DEDICATED_SECTIONS: DedicatedSection[] = [
     },
     href: "/night-stay",
     waText: "Hi, I want to book a farm night stay",
+    enquireLabel: "Reserve a Night Stay",
   },
   {
     id: "corporate",
@@ -668,6 +671,7 @@ export const DEDICATED_SECTIONS: DedicatedSection[] = [
     },
     href: "/corporate-retreats",
     waText: "Hi, I want a corporate team outing quote",
+    enquireLabel: "Request a Team Quote",
   },
   {
     id: "school",
@@ -695,6 +699,7 @@ export const DEDICATED_SECTIONS: DedicatedSection[] = [
     },
     href: "/school-field-trips",
     waText: "Hi, I want to plan a school trip",
+    enquireLabel: "Plan a School Trip",
   },
   {
     id: "celebrations",
@@ -722,6 +727,7 @@ export const DEDICATED_SECTIONS: DedicatedSection[] = [
     },
     href: "/birthdays-celebrations",
     waText: "Hi, I want to plan a celebration at Ananda Kshethram",
+    enquireLabel: "Plan Your Celebration",
   },
 ];
 

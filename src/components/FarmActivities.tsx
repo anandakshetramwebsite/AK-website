@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FARM_ACTIVITIES, whatsappUrl } from "@/lib/site-copy";
 
+const ACTIVITIES_WA_TEXT =
+  "Hi, I want to know more about activities at Ananda Kshethram";
+
 interface FarmActivitiesProps {
   embedded?: boolean;
 }
@@ -20,7 +23,7 @@ export default function FarmActivities({ embedded = false }: FarmActivitiesProps
       className={
         embedded
           ? "border-t border-forest/10 bg-linen-dark px-4 pb-14 pt-8 sm:px-6 lg:px-8"
-          : "section-pad bg-linen-dark"
+          : "section-pad bg-linen-dark pb-14"
       }
     >
       <div className={embedded ? "container-page mx-auto max-w-7xl" : "container-page"}>
@@ -81,18 +84,18 @@ export default function FarmActivities({ embedded = false }: FarmActivitiesProps
           ))}
         </div>
 
-        <div className="mt-8 text-center">
-          <a
-            href={whatsappUrl(
-              "Hi, I want to know more about activities at Ananda Kshethram"
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex rounded-full bg-forest-green px-5 py-2.5 text-sm font-semibold text-ivory transition-colors hover:bg-forest-light"
-          >
-            Enquire About Activities
-          </a>
-        </div>
+        {embedded && (
+          <div className="mt-8 text-center">
+            <a
+              href={whatsappUrl(ACTIVITIES_WA_TEXT)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full border border-forest/20 bg-ivory px-4 py-2 text-xs font-semibold text-forest transition-colors hover:border-brand-gold"
+            >
+              Ask About Activities
+            </a>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>

@@ -13,6 +13,8 @@ interface SectionEnquiryBarProps {
   /** Which CTAs to show in this section — spread across the site, not all at once */
   actions?: CtaAction[];
   waText?: string;
+  /** Override default "Enquire Now" for the enquire action */
+  enquireLabel?: string;
   compact?: boolean;
   /** For dark sections (Brundavanam, final invite) */
   variant?: "light" | "dark";
@@ -25,6 +27,7 @@ const SITE_VISIT_TEXT =
 export default function SectionEnquiryBar({
   actions = ["book", "whatsapp"],
   waText = "Hi, I want to plan a visit to Ananda Kshethram",
+  enquireLabel = "Enquire Now",
   compact = false,
   variant = "light",
   className = "",
@@ -48,7 +51,7 @@ export default function SectionEnquiryBar({
     plan: { href: "#experiences", label: "Plan Your Outing", style: btnBase },
     enquire: {
       href: whatsappUrl(waText),
-      label: "Enquire Now",
+      label: enquireLabel,
       external: true,
       style: btnBase,
     },

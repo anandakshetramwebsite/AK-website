@@ -124,6 +124,7 @@ export default function ProgramHub() {
 
         <SectionEnquiryBar
           actions={["book", "enquire"]}
+          enquireLabel="Get Package Help"
           waText="Hi, I want to book a package at Ananda Kshethram"
           compact
         />

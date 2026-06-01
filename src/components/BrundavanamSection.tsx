@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   DIVINE_EVENTS,
@@ -110,12 +109,6 @@ export default function BrundavanamSection() {
                   ))}
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Link
-                    href="#goushala"
-                    className="rounded-full bg-brand-gold px-4 py-2 text-xs font-semibold text-brand-crimson"
-                  >
-                    Explore Goushala
-                  </Link>
                   <a
                     href={whatsappUrl(
                       "Hi, I want to know about the Goushala experience at Ananda Brundavanam"
@@ -124,7 +117,7 @@ export default function BrundavanamSection() {
                     rel="noopener noreferrer"
                     className="rounded-full border border-ivory/35 px-4 py-2 text-xs font-semibold text-ivory"
                   >
-                    Enquire Now
+                    Ask About Goushala
                   </a>
                 </div>
               </div>

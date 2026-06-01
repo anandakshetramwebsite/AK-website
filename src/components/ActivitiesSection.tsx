@@ -1,6 +1,5 @@
 import ActivitiesHighlight from "@/components/ActivitiesHighlight";
 import FarmActivities from "@/components/FarmActivities";
-import SectionEnquiryBar from "@/components/SectionEnquiryBar";
 
 const REVIEW_ACTIVITIES = [
   "Farm Train Ride",
@@ -44,13 +43,6 @@ export default function ActivitiesSection() {
       </div>
       <ActivitiesHighlight embedded />
       <FarmActivities embedded />
-      <div className="container-page pb-12">
-        <SectionEnquiryBar
-          actions={["enquire"]}
-          waText="Hi, I want to know more about activities at Ananda Kshethram"
-          compact
-        />
-      </div>
     </div>
   );
 }
