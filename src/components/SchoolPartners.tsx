@@ -25,7 +25,7 @@ export default function SchoolPartners() {
             School Agri Tourism Partnerships
           </p>
           <h2 className="heading-section mt-3 text-ivory">
-            Trusted by 500+ Schools Across Hyderabad
+            Trusted by 100+ Schools Across Hyderabad
           </h2>
         </motion.div>
 
