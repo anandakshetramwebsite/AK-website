@@ -124,7 +124,7 @@ export default function HeroMangoFestivalPromo() {
                 rel="noopener noreferrer"
                 className="touch-target w-full rounded-full border border-ivory/40 px-4 py-3 text-xs font-semibold text-ivory transition-colors active:bg-ivory/10 sm:w-auto sm:py-2.5 sm:hover:border-warm-gold sm:hover:text-warm-gold"
               >
-                WhatsApp →
+                WhatsApp
               </a>
             </div>
           </div>

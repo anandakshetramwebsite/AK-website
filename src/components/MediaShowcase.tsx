@@ -99,7 +99,7 @@ export default function MediaShowcase({
                   rel="noopener noreferrer"
                   className="text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
                 >
-                  Follow @anandakshethram →
+                  Follow on Instagram
                 </a>
                 <a
                   href={media.social.youtubeChannel}
@@ -107,19 +107,13 @@ export default function MediaShowcase({
                   rel="noopener noreferrer"
                   className="text-center text-sm font-semibold text-brand-crimson hover:text-brand-gold lg:text-left"
                 >
-                  Subscribe on YouTube →
+                  Subscribe on YouTube
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <p className="mt-8 text-center text-sm text-midnight-crimson/60">
-          <a href="#videos" className="underline hover:text-brand-gold">
-            View gallery
-          </a>{" "}
-          for more moments from the farm.
-        </p>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ACTIVITY_HIGHLIGHTS } from "@/lib/constants";
+import { ACTIVITY_IMAGES } from "@/lib/site-images";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 
 interface ActivitiesHighlightProps {
@@ -22,7 +23,7 @@ export default function ActivitiesHighlight({
   return (
     <section
       id={embedded ? undefined : "activities"}
-      className={embedded ? "pb-6 pt-2" : "section-pad village-pattern bg-warm-cream"}
+      className={embedded ? "pb-6 pt-2" : "section-pad bg-warm-cream"}
     >
       <div className="container-page">
         {!embedded && (
@@ -66,8 +67,9 @@ export default function ActivitiesHighlight({
             >
               <PlaceholderImage
                 label={activity.title}
-                icon={activity.icon}
+                src={ACTIVITY_IMAGES[activity.id]}
                 className="aspect-[5/3] w-full"
+                sizes="(max-width: 1024px) 50vw, 33vw"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight-crimson/90 to-transparent p-3 sm:p-4">
                 <h3 className="font-serif text-base font-semibold text-ivory sm:text-lg">

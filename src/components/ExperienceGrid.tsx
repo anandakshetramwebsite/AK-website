@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { EXPERIENCE_PILLARS } from "@/lib/constants";
+import { PILLAR_IMAGES } from "@/lib/site-images";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 
 export default function ExperienceGrid() {
@@ -39,7 +40,9 @@ export default function ExperienceGrid() {
             >
               <PlaceholderImage
                 label={pillar.title}
+                src={PILLAR_IMAGES[pillar.id] ?? pillar.image}
                 className="absolute inset-0 h-full w-full"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-midnight-crimson/90 via-forest-green/40 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5">

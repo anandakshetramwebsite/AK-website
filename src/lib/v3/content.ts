@@ -328,7 +328,7 @@ export const v3IgImages = [
 export const v3Faqs = [
   {
     q: "How far is Ananda Kshethram from Hyderabad?",
-    a: "Ananda Kshethram is approximately 60 minutes drive from Gachibowli, Hyderabad. Located in the Chevella area, Ranga Reddy District, it's easily accessible from HITEC City, Banjara Hills, Jubilee Hills, and most of Hyderabad via the Outer Ring Road.",
+    a: "Ananda Kshethram is approximately a 1 hour drive from Gachibowli, Hyderabad. Located in the Chevella area, Ranga Reddy District, it's easily accessible from HITEC City, Banjara Hills, Jubilee Hills, and most of Hyderabad via the Outer Ring Road.",
   },
   {
     q: "What is the minimum group size for school agri tourism trips?",

@@ -25,7 +25,7 @@ export default function JoinAnandaBand() {
             rel="noopener noreferrer"
             className="touch-target shrink-0 rounded-full bg-brand-gold px-8 py-3.5 text-sm font-bold text-brand-crimson shadow-lg transition-all hover:bg-warm-gold hover:shadow-brand-gold/25"
           >
-            Join Now →
+            Join Broadcast Group
           </a>
         </div>
       </div>

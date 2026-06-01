@@ -1,6 +1,7 @@
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import PageTracker from "@/components/PageTracker";
+import WhatsAppFloater from "@/components/WhatsAppFloater";
 import { BookingProvider } from "@/context/BookingContext";
 
 export default function SiteLayout({
@@ -14,6 +15,7 @@ export default function SiteLayout({
       <SiteHeader />
       {children}
       <SiteFooter />
+      <WhatsAppFloater />
     </BookingProvider>
   );
 }

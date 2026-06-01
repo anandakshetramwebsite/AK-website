@@ -22,13 +22,26 @@ export default function AnandaQuestion() {
             {ANANDA_QUESTION.eyebrow}
           </p>
           <blockquote className="heading-section mt-4 text-forest">
-            &ldquo;{ANANDA_QUESTION.quote}&rdquo;
+            {ANANDA_QUESTION.quote}
           </blockquote>
           <div className="mx-auto mt-6 h-px w-16 bg-brand-gold/60" />
           <p className="mt-6 text-base leading-relaxed text-forest/80 sm:text-lg">
             {ANANDA_QUESTION.body}
           </p>
-          <SectionEnquiryBar actions={["plan"]} compact className="mx-auto" />
+
+          <ul className="mx-auto mt-8 grid max-w-2xl gap-2 text-left sm:grid-cols-2">
+            {ANANDA_QUESTION.highlights.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2 text-sm text-forest/85"
+              >
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gold" aria-hidden />
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <SectionEnquiryBar actions={["book"]} compact className="mx-auto" />
         </motion.div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 sm:gap-8">

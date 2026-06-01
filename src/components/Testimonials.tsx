@@ -19,9 +19,6 @@ export default function Testimonials() {
             Real Voices
           </p>
           <h2 className="heading-section mt-3 text-forest">Hear It From Them</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-forest/70">
-            Real visitors to our agri tourism farm. Real words. Zero scripts.
-          </p>
         </motion.div>
 
         <div className="relative mx-auto max-w-5xl">
@@ -56,7 +53,7 @@ export default function Testimonials() {
               rel="noopener noreferrer"
               className="font-semibold text-forest hover:text-brand-gold"
             >
-              Subscribe on YouTube @anandakshethram →
+              Subscribe on YouTube
             </a>
           </p>
         </div>

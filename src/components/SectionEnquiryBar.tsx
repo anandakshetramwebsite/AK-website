@@ -1,8 +1,4 @@
-import {
-  PHONE_TEL,
-  PHONE_DISPLAY,
-  WHATSAPP_PHONE,
-} from "@/lib/constants";
+import { PHONE_TEL, WHATSAPP_PHONE } from "@/lib/constants";
 import { whatsappUrl } from "@/lib/site-copy";
 
 export type CtaAction =
@@ -79,11 +75,6 @@ export default function SectionEnquiryBar({
           : "rounded-xl border border-forest/10 bg-linen/50 p-4 sm:p-5"
       } ${className}`}
     >
-      {!compact && !isDark && (
-        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-gold">
-          Plan Your Visit
-        </p>
-      )}
       <div className="flex flex-wrap items-center justify-center gap-2">
         {actions.map((action) => {
           const cta = labels[action];
@@ -101,9 +92,6 @@ export default function SectionEnquiryBar({
           );
         })}
       </div>
-      {!compact && !isDark && (
-        <p className="text-[10px] text-forest/45">{PHONE_DISPLAY}</p>
-      )}
     </div>
   );
 }

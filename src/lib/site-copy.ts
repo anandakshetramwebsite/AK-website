@@ -18,8 +18,18 @@ export {
 export const ANANDA_QUESTION = {
   eyebrow: "Why Ananda Kshethram",
   quote:
-    "When did your family last milk a cow, ride a bullock cart, play village games, and eat a meal that grew on the same soil you walked?",
-  body: "Ananda Kshethram is Hyderabad's first agri tourism hub and only pure veg farm retreat — a living village experience for families, schools, corporates, and communities. Nature, learning, celebrations, and spirituality come together here, just 60 minutes from Gachibowli.",
+    "More Than A Getaway — A Place To Reconnect With Nature, People & Meaningful Experiences.",
+  body: "Ananda Kshethram is Hyderabad's First Agri Tourism Hub and Only Pure Veg Farm Retreat, helping families, schools, corporates, and communities reconnect with nature, village life, and meaningful human connections — just 1 Hour Drive from Hyderabad.",
+  highlights: [
+    "Hyderabad's First Agri Tourism Hub",
+    "Hyderabad's Only Pure Veg Farm Retreat",
+    "Authentic Village Experiences",
+    "Nature & Farm-Based Learning",
+    "Family-Friendly Environment",
+    "Corporate Team Bonding Activities",
+    "Safe & Spacious Green Campus",
+    "Just 1 Hour Drive From Hyderabad",
+  ],
   screenCaption:
     "City life keeps us busy — but rarely connected to soil, cows, and each other.",
   farmCaption: "One day here reconnects families, teams, and communities.",

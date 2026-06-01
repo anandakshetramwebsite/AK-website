@@ -98,7 +98,7 @@ export default function SchoolPartners() {
             rel="noopener noreferrer"
             className="touch-target shrink-0 rounded-full bg-brand-gold px-6 py-3.5 text-center text-sm font-bold text-brand-crimson shadow-lg transition-transform hover:scale-[1.02]"
           >
-            Request FAM Visit →
+            Request FAM Visit
           </a>
         </motion.div>
       </div>

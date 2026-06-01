@@ -18,7 +18,7 @@ const REVIEW_ACTIVITIES = [
 /** Single activities block — shared header, visual highlights + full list below */
 export default function ActivitiesSection() {
   return (
-    <div id="activities" className="village-pattern scroll-mt-20 bg-warm-cream">
+    <div id="activities" className="scroll-mt-20 bg-warm-cream">
       <div className="container-page px-4 pb-4 pt-14 text-center sm:px-6 sm:pt-16 lg:px-8">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-gold">
           Activities &amp; Experiences

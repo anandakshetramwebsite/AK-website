@@ -1,3 +1,5 @@
+import { PILLAR_IMAGES, PROGRAM_IMAGES } from "./site-images";
+
 export interface ProgramPriceTier {
   price: number;
   label: string;
@@ -9,7 +11,8 @@ export interface Program {
   subtitle: string;
   category: "family" | "corporate" | "school" | "night-stay" | "all";
   categories: Array<"family" | "corporate" | "school" | "night-stay">;
-  image: string;
+  /** Omit until a program-specific photo is available */
+  image?: string;
   adultPrice: number;
   childPrice: number;
   /** School-style dual pricing (with / without lunch) */
@@ -47,7 +50,7 @@ export const BRAND_FAVICON = "/ak-favicon.png";
 
 export const FARM_LOCATION = {
   line: "Chevella Mandal, R.R. District, Telangana",
-  note: "~60 minutes from Gachibowli, Hyderabad",
+  note: "1 Hour Drive From Gachibowli, Hyderabad",
 } as const;
 
 export const YOUTUBE_URL = "https://www.youtube.com/@anandakshethram";
@@ -82,8 +85,7 @@ export const PROGRAMS: Program[] = [
     subtitle: "Day visit · All inclusive",
     category: "family",
     categories: ["family"],
-    image:
-      "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80",
+    image: PROGRAM_IMAGES["family-outing"],
     adultPrice: 1299,
     childPrice: 1299,
     packageBadge: "Family & Group Outing",
@@ -106,8 +108,7 @@ export const PROGRAMS: Program[] = [
     subtitle: "Overnight stay · All inclusive",
     category: "night-stay",
     categories: ["night-stay", "family", "corporate"],
-    image:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80",
+    image: PROGRAM_IMAGES["night-stay"],
     adultPrice: 1999,
     childPrice: 1999,
     packageBadge: "Overnight Farm Experience",
@@ -130,8 +131,7 @@ export const PROGRAMS: Program[] = [
     subtitle: "For groups of 30+ students",
     category: "school",
     categories: ["school"],
-    image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80",
+    image: PROGRAM_IMAGES["school-trip"],
     adultPrice: 699,
     childPrice: 499,
     priceTiers: [
@@ -160,8 +160,7 @@ export const PROGRAMS: Program[] = [
     subtitle: "Teams, startups & corporates",
     category: "corporate",
     categories: ["corporate"],
-    image:
-      "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800&q=80",
+    image: PROGRAM_IMAGES["corporate-retreat"],
     adultPrice: 1299,
     childPrice: 0,
     packageBadge: "Corporate Agri Tourism",
@@ -184,8 +183,7 @@ export const PROGRAMS: Program[] = [
     subtitle: "The outing everyone talks about",
     category: "family",
     categories: ["family"],
-    image:
-      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
+    image: PROGRAM_IMAGES["kitty-reunion"],
     adultPrice: 1499,
     childPrice: 999,
     groupDiscount: { minGroup: 12, percent: 10 },
@@ -205,8 +203,6 @@ export const PROGRAMS: Program[] = [
     subtitle: "Seasonal harvest celebration",
     category: "family",
     categories: ["family", "school"],
-    image:
-      "https://images.unsplash.com/photo-1559187633-09d0dbafab9c?w=800&q=80",
     adultPrice: 1299,
     childPrice: 899,
     groupDiscount: { minGroup: 15, percent: 15 },
@@ -230,8 +226,7 @@ export const EXPERIENCE_PILLARS = [
     subtitle: "Food that knows its origin",
     description:
       "Grown here, harvested this morning, cooked with care. Every meal is 100% vegetarian and served with the warmth of a farm kitchen.",
-    image:
-      "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80",
+    image: PILLAR_IMAGES.meals,
     span: "col-span-2 row-span-2",
   },
   {
@@ -240,8 +235,7 @@ export const EXPERIENCE_PILLARS = [
     subtitle: "Sacred Gir cows",
     description:
       "Morning rituals, cow puja, and the quiet bond between land, animal, and family.",
-    image:
-      "https://images.unsplash.com/photo-1560493676-2b2d3da9993a?w=800&q=80",
+    image: PILLAR_IMAGES.goushala,
     span: "col-span-1 row-span-1",
   },
   {
@@ -250,8 +244,7 @@ export const EXPERIENCE_PILLARS = [
     subtitle: "No batteries required",
     description:
       "Lagori, gilli-danda, kabaddi, and dozens more — the games your grandparents played, ready for every age.",
-    image:
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+    image: PILLAR_IMAGES.games,
     span: "col-span-1 row-span-1",
   },
   {
@@ -260,8 +253,7 @@ export const EXPERIENCE_PILLARS = [
     subtitle: "Walk slowly. Notice everything.",
     description:
       "Guided trails through orchards and fields, farm pool, and the mud bath children never want to leave.",
-    image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+    image: PILLAR_IMAGES.trails,
     span: "col-span-2 row-span-1",
   },
 ];
@@ -298,7 +290,7 @@ export const HERO_KEYWORDS = [
   "Farm Night Stays",
   "Corporate Team Outings",
   "School Trips",
-  "Summer Camps",
+  "Life Skills Summer Camps",
   "Celebrations",
   "Community Gatherings",
 ];
@@ -372,7 +364,7 @@ export const CORE_EXPERIENCES: CoreExperience[] = [
   },
   {
     id: "summer-camp",
-    title: "Life Skills & Summer Camps",
+    title: "Life Skills Summer Camps",
     subtitle: "Residential · Holiday camps",
     description:
       "Multi-day residential camps — dawn to bonfire — building independence, farm skills, and character in nature.",

@@ -9,6 +9,7 @@ import {
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import SectionEnquiryBar from "@/components/SectionEnquiryBar";
 import { whatsappUrl } from "@/lib/site-copy";
+import { BRUNDAVANAM_IMAGES } from "@/lib/site-images";
 
 const GOUSHALA_GALLERY = ["Real Goushala", "Desi Gir Cows", "Go Seva"];
 const DIVINE_GALLERY = ["Real Events", "Spiritual Gatherings", "Divine Venue"];
@@ -48,8 +49,9 @@ export default function BrundavanamSection() {
             <div className="grid lg:grid-cols-2">
               <PlaceholderImage
                 label="Ananda Brundavanam Goushala"
-                icon="🐄"
+                src={BRUNDAVANAM_IMAGES.goushalaHero}
                 className="aspect-[16/10] w-full lg:aspect-auto lg:min-h-[280px]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="p-5 sm:p-7">
                 <h3 className="font-serif text-xl italic text-warm-gold sm:text-2xl">
@@ -97,12 +99,13 @@ export default function BrundavanamSection() {
                   life meet.&rdquo;
                 </blockquote>
                 <div className="mt-3 grid grid-cols-3 gap-1.5">
-                  {GOUSHALA_GALLERY.map((label) => (
+                  {GOUSHALA_GALLERY.map((label, gi) => (
                     <PlaceholderImage
                       key={label}
                       label={label}
-                      icon="🐄"
+                      src={BRUNDAVANAM_IMAGES.goushalaGallery[gi]}
                       className="aspect-square rounded-md"
+                      sizes="120px"
                     />
                   ))}
                 </div>
@@ -178,12 +181,13 @@ export default function BrundavanamSection() {
                   </div>
                 </div>
                 <div className="mt-3 grid grid-cols-3 gap-1.5">
-                  {DIVINE_GALLERY.map((label) => (
+                  {DIVINE_GALLERY.map((label, gi) => (
                     <PlaceholderImage
                       key={label}
                       label={label}
-                      icon="🪔"
+                      src={BRUNDAVANAM_IMAGES.divineGallery[gi]}
                       className="aspect-square rounded-md"
+                      sizes="120px"
                     />
                   ))}
                 </div>
@@ -196,8 +200,9 @@ export default function BrundavanamSection() {
               </div>
               <PlaceholderImage
                 label="Divine Events Venue"
-                icon="🪔"
+                src={BRUNDAVANAM_IMAGES.divineHero}
                 className="aspect-[16/10] w-full lg:order-1 lg:aspect-auto lg:min-h-[280px]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </motion.article>

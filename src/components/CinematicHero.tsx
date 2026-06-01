@@ -1,43 +1,16 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { HERO_TRUST_STATS, HERO_VIDEO_URL, HERO_KEYWORDS, MAPS_URL, FARM_LOCATION } from "@/lib/constants";
+import { HERO_TRUST_STATS, HERO_VIDEO_URL, MAPS_URL, FARM_LOCATION } from "@/lib/constants";
+import { HERO_POSTER } from "@/lib/site-images";
+
+const HERO_DESCRIPTION =
+  "Experience Hyderabad's First Agri Tourism Hub and Only Pure Veg Farm Retreat. Enjoy Family Day Outings, Farm Night Stays, School Trips, Corporate Team Outings, Life Skills Summer Camps, Celebrations, and Authentic Village Experiences.";
 import HeroMangoFestivalPromo from "@/components/HeroMangoFestivalPromo";
 
-const LEAVES = [
-  { id: 1, x: "8%", y: "15%", size: 80, blur: 2, depth: 0.03 },
-  { id: 2, x: "85%", y: "25%", size: 100, blur: 3, depth: 0.05 },
-  { id: 3, x: "72%", y: "70%", size: 60, blur: 1.5, depth: 0.04 },
-  { id: 4, x: "15%", y: "75%", size: 90, blur: 2.5, depth: 0.06 },
-  { id: 5, x: "45%", y: "85%", size: 70, blur: 2, depth: 0.035 },
-];
-
 export default function CinematicHero() {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const [parallaxEnabled, setParallaxEnabled] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    setMouse({
-      x: (e.clientX / window.innerWidth - 0.5) * 2,
-      y: (e.clientY / window.innerHeight - 0.5) * 2,
-    });
-  }, []);
-
-  useEffect(() => {
-    const finePointer = window.matchMedia("(pointer: fine)");
-    const apply = () => setParallaxEnabled(finePointer.matches);
-    apply();
-    finePointer.addEventListener("change", apply);
-    return () => finePointer.removeEventListener("change", apply);
-  }, []);
-
-  useEffect(() => {
-    if (!parallaxEnabled) return;
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [handleMouseMove, parallaxEnabled]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -61,7 +34,7 @@ export default function CinematicHero() {
           loop
           playsInline
           preload="auto"
-          poster="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80"
+          poster={HERO_POSTER}
           className="absolute left-1/2 top-1/2 h-full w-full min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover object-center lg:min-h-[120%] lg:min-w-[120%] lg:object-cover"
         >
           <source src={HERO_VIDEO_URL} type="video/mp4" />
@@ -70,44 +43,6 @@ export default function CinematicHero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_45%,rgba(58,8,8,0.72)_0%,transparent_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-midnight-crimson/90 via-transparent to-forest-green/30" />
       </div>
-
-      {parallaxEnabled &&
-        LEAVES.map((leaf) => (
-          <motion.div
-            key={leaf.id}
-            className="pointer-events-none absolute z-10 hidden opacity-40 md:block"
-            style={{
-              left: leaf.x,
-              top: leaf.y,
-              filter: `blur(${leaf.blur}px)`,
-            }}
-            animate={{
-              x: mouse.x * leaf.depth * 100,
-              y: mouse.y * leaf.depth * 80,
-              rotate: mouse.x * leaf.depth * 15,
-            }}
-            transition={{ type: "spring", stiffness: 50, damping: 20 }}
-          >
-            <svg
-              width={leaf.size}
-              height={leaf.size}
-              viewBox="0 0 100 100"
-              fill="none"
-            >
-              <path
-                d="M50 5C50 5 90 30 90 55C90 80 50 95 50 95C50 95 10 80 10 55C10 30 50 5 50 5Z"
-                fill="#C9941A"
-                fillOpacity="0.65"
-              />
-              <path
-                d="M50 15 L50 90"
-                stroke="#1C3A14"
-                strokeWidth="1.5"
-                strokeOpacity="0.35"
-              />
-            </svg>
-          </motion.div>
-        ))}
 
       <div className="relative z-20 flex min-h-[100dvh] min-h-[600px] flex-col">
         <HeroMangoFestivalPromo />
@@ -135,21 +70,14 @@ export default function CinematicHero() {
                   "0 2px 4px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.45)",
               }}
             >
-              Where Nature, Village Life
+              The Best Getaway Destination
               <br />
-              <span className="text-warm-gold">&amp; Meaningful Memories Meet</span>
+              <span className="text-warm-gold">Near Hyderabad</span>
             </h1>
 
-            <div className="mx-auto mt-5 flex max-w-2xl flex-wrap justify-center gap-2">
-              {HERO_KEYWORDS.map((kw) => (
-                <span
-                  key={kw}
-                  className="rounded-lg border border-ivory/15 bg-ivory/95 px-3 py-2 text-[11px] font-semibold leading-snug text-forest-green shadow-sm sm:text-xs"
-                >
-                  {kw}
-                </span>
-              ))}
-            </div>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-ivory/90 sm:text-base">
+              {HERO_DESCRIPTION}
+            </p>
 
             <p className="mx-auto mt-5 inline-flex max-w-xl flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-brand-gold/45 bg-brand-gold/10 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-ivory sm:text-xs">
               <span className="text-warm-gold">100% pure vegetarian</span>
@@ -167,9 +95,8 @@ export default function CinematicHero() {
                 <span className="text-ivory/40" aria-hidden>
                   ·
                 </span>
-                <span>{FARM_LOCATION.note.split(", ")[0]},</span>
                 <span className="inline-flex items-center gap-1.5">
-                  {FARM_LOCATION.note.split(", ")[1]}
+                  {FARM_LOCATION.note}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -200,18 +127,12 @@ export default function CinematicHero() {
                 Book Your Visit
               </a>
               <a
-                href="#experiences"
-                className="touch-target w-full max-w-[11rem] rounded-full border-2 border-ivory/70 bg-midnight-crimson/60 px-6 py-3 text-sm font-semibold text-ivory backdrop-blur-sm sm:w-auto"
-              >
-                Plan Your Outing
-              </a>
-              <a
                 href="https://wa.me/917799900060"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="touch-target w-full max-w-[11rem] rounded-full border-2 border-ivory/70 bg-midnight-crimson/60 px-6 py-3 text-sm font-semibold text-ivory backdrop-blur-sm sm:w-auto"
               >
-                WhatsApp Us →
+                WhatsApp Us
               </a>
             </motion.div>
           </motion.div>

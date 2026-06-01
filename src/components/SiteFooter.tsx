@@ -1,7 +1,7 @@
 import { getSiteContent } from "@/lib/cms/storage";
 import { FOOTER_NAV } from "@/lib/single-page-nav";
-import SocialLinks from "@/components/SocialLinks";
 import BuiltByCredit from "@/components/BuiltByCredit";
+import FooterSocialIcons from "@/components/FooterSocialIcons";
 
 export default async function SiteFooter() {
   const content = await getSiteContent();
@@ -36,10 +36,7 @@ export default async function SiteFooter() {
             {content.contact.phone}
           </a>
           <p className="mt-5 text-xs uppercase tracking-[0.2em] text-brand-gold">Follow Us</p>
-          <SocialLinks
-            media={content.media}
-            className="mt-2 [&_a]:border-gold-mist/30 [&_a]:bg-midnight-crimson [&_a]:text-gold-mist [&_a]:hover:border-brand-gold [&_a]:hover:text-brand-gold"
-          />
+          <FooterSocialIcons className="mt-3" />
         </div>
       </div>
       <div className="brand-container mt-10 border-t border-gold-mist/15 pt-5 text-center">

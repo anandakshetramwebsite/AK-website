@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { DEDICATED_SECTIONS } from "@/lib/constants";
+import { DEDICATED_GALLERY_IMAGES } from "@/lib/site-images";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import SectionEnquiryBar from "@/components/SectionEnquiryBar";
 
@@ -20,12 +21,12 @@ export default function DedicatedSections() {
             Explore Each Experience
           </p>
           <h2 className="heading-section mt-3 text-forest">
-            Dedicated Sections for Every Visit Type
+            Tailored for Every Group
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-forest/70">
-            Experience details, benefits, inclusions, galleries, and enquiry
-            options — for families, corporates, schools, night stays, and
-            celebrations.
+            Family day outings, corporate retreats, school field trips, farm
+            night stays, and celebrations — each with dedicated packages and
+            inclusions.
           </p>
         </motion.div>
 
@@ -99,7 +100,7 @@ export default function DedicatedSections() {
                     href={block.href}
                     className="text-sm font-semibold text-forest-green hover:text-brand-crimson"
                   >
-                    Full details →
+                    View details
                   </Link>
                 </div>
 
@@ -107,11 +108,13 @@ export default function DedicatedSections() {
               </div>
 
               <div className="grid grid-cols-3 gap-2">
-                {block.galleryLabels.map((label) => (
+                {block.galleryLabels.map((label, gi) => (
                   <PlaceholderImage
                     key={label}
                     label={label}
+                    src={DEDICATED_GALLERY_IMAGES[block.id]?.[gi]}
                     className="aspect-[4/5] rounded-lg sm:aspect-square"
+                    sizes="(max-width: 1024px) 33vw, 20vw"
                   />
                 ))}
               </div>

@@ -63,7 +63,7 @@ export default function CoreExperiences() {
           ))}
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((exp, index) => (
             <motion.article
               key={exp.id}
@@ -90,43 +90,42 @@ export default function CoreExperiences() {
             </motion.article>
           ))}
 
-          <motion.div
+          <motion.article
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: filtered.length * 0.03 }}
-            className="flex min-h-[9.5rem] flex-col items-center justify-center rounded-xl border border-brand-gold/45 bg-forest-green p-5 text-center shadow-sm sm:min-h-0"
+            className="flex items-start gap-3 rounded-xl border border-brand-gold/45 bg-forest-green p-4 shadow-sm"
           >
-            <span className="text-2xl" aria-hidden>
-              🌿
-            </span>
-            <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-gold">
-              Not sure which fits?
-            </p>
-            <h3 className="mt-1.5 font-serif text-base font-semibold italic leading-snug text-ivory sm:text-lg">
-              Plan your farm experience
-            </h3>
-            <p className="mt-2 max-w-[16rem] text-xs leading-relaxed text-ivory/75">
-              Tell us your group size and occasion — we&apos;ll suggest the
-              right package.
-            </p>
-            <div className="mt-4 flex w-full max-w-[12rem] flex-col gap-2">
-              <a
-                href="#programs"
-                className="rounded-full bg-brand-gold px-4 py-2.5 text-sm font-bold text-brand-crimson shadow-md transition-transform hover:scale-[1.02]"
-              >
-                Book Your Visit
-              </a>
-              <a
-                href={`https://wa.me/${WHATSAPP_PHONE}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-ivory/45 px-4 py-2 text-xs font-semibold text-ivory transition-colors hover:border-brand-gold hover:text-brand-gold"
-              >
-                WhatsApp Us
-              </a>
+            <span
+              className="mt-1.5 h-8 w-0.5 shrink-0 rounded-full bg-brand-gold"
+              aria-hidden
+            />
+            <div className="min-w-0 flex-1">
+              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-gold">
+                Visit Ananda Kshethram
+              </p>
+              <h3 className="mt-0.5 font-serif text-base font-semibold italic leading-snug text-ivory">
+                Plan your visit to AK
+              </h3>
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                <a
+                  href="#programs"
+                  className="rounded-full bg-brand-gold px-3 py-1.5 text-[11px] font-bold text-brand-crimson"
+                >
+                  Book Your Visit
+                </a>
+                <a
+                  href={`https://wa.me/${WHATSAPP_PHONE}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-ivory/40 px-3 py-1.5 text-[11px] font-semibold text-ivory hover:border-brand-gold hover:text-brand-gold"
+                >
+                  WhatsApp Us
+                </a>
+              </div>
             </div>
-          </motion.div>
+          </motion.article>
         </div>
 
         {/* Grid CTA card fills the 12th slot — no duplicate bar below */}

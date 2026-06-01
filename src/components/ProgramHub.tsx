@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { PROGRAMS } from "@/lib/constants";
 import { useBooking } from "@/context/BookingContext";
 import ProgramCard from "@/components/ui/ProgramCard";
-import GuestCounter from "@/components/ui/GuestCounter";
 import BookingPanel from "@/components/ui/BookingPanel";
 import AudienceRotator from "@/components/AudienceRotator";
 import SectionEnquiryBar from "@/components/SectionEnquiryBar";
@@ -49,8 +48,7 @@ export default function ProgramHub() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-forest/70 sm:text-base">
             Transparent pricing — day outing packages, night stay packages, school
-            trip packages, corporate packages, and event booking enquiries. Book
-            your visit or enquire now.
+            trip packages, corporate packages, and event booking enquiries.
           </p>
 
           <div className="mx-auto mt-8 max-w-2xl overflow-hidden rounded-2xl border border-brand-gold/40 bg-ivory shadow-[0_4px_24px_rgba(201,148,26,0.12)]">
@@ -104,9 +102,6 @@ export default function ProgramHub() {
           ))}
         </div>
 
-        <BookingPanel />
-        <GuestCounter />
-
         <motion.div
           key={activeFilter}
           initial={{ opacity: 0 }}
@@ -119,18 +114,11 @@ export default function ProgramHub() {
           ))}
         </motion.div>
 
+        <BookingPanel />
+
         {filteredPrograms.length === 0 && (
           <p className="mt-10 text-center text-forest/50">
             No programs match this filter.
-          </p>
-        )}
-
-        {activeFilter === "events" && (
-          <p className="mx-auto mt-6 max-w-lg text-center text-sm text-forest/65">
-            For weddings, homams, and divine events at Ananda Brundavanam,{" "}
-            <a href="#divine-events" className="font-semibold text-brand-crimson">
-              enquire here →
-            </a>
           </p>
         )}
 

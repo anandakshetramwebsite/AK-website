@@ -10,13 +10,13 @@ import BrundavanamSection from "@/components/BrundavanamSection";
 import SchoolPartners from "@/components/SchoolPartners";
 import Testimonials from "@/components/Testimonials";
 import MediaShowcase from "@/components/MediaShowcase";
+import FarmGallery from "@/components/FarmGallery";
 import BrandValuesStrip from "@/components/BrandValuesStrip";
 import JoinAnandaBand from "@/components/JoinAnandaBand";
 import FaqSection from "@/components/FaqSection";
 import FinalInvitation from "@/components/FinalInvitation";
 import Footer from "@/components/Footer";
-import FallingMangoes from "@/components/FallingMangoes";
-import ShareMangoFloater from "@/components/ShareMangoFloater";
+import WhatsAppFloater from "@/components/WhatsAppFloater";
 import { BookingProvider } from "@/context/BookingContext";
 import { getSiteContent } from "@/lib/cms/storage";
 
@@ -24,20 +24,18 @@ export default async function Version1Home() {
   const content = await getSiteContent();
   const media = {
     ...content.media,
-    sectionTitle: "Real Moments. Real Smiles. Real Ananda.",
-    sectionSubtitle:
-      "Real families, real activities, real farm experiences, real goushala, real events — authentic Ananda Kshethram visuals coming soon.",
+    sectionTitle: "Life at the Farm",
+    sectionSubtitle: content.media.sectionSubtitle,
     instagram: {
       ...content.media.instagram,
-      headline: "@anandakshethram · Agri Tourism Hyderabad",
-      note: "Follow along for harvest days, school trips, bonfire nights, goushala mornings, and the quiet joy between them.",
+      headline: "@anandakshethram",
+      note: "Harvest days, school trips, goushala mornings, and celebrations at Ananda Kshethram.",
     },
   };
 
   return (
     <BookingProvider>
-      <FallingMangoes />
-      <ShareMangoFloater />
+      <WhatsAppFloater />
       <Navbar />
       <main className="relative overflow-x-clip">
         <CinematicHero />
@@ -51,6 +49,7 @@ export default async function Version1Home() {
         <ProgramHub />
         <SchoolPartners />
         <Testimonials />
+        <FarmGallery />
         <MediaShowcase media={media} variant="forest" hideVideos />
         <JoinAnandaBand />
         <FaqSection />

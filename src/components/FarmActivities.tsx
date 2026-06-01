@@ -90,7 +90,7 @@ export default function FarmActivities({ embedded = false }: FarmActivitiesProps
             rel="noopener noreferrer"
             className="inline-flex rounded-full bg-forest-green px-5 py-2.5 text-sm font-semibold text-ivory transition-colors hover:bg-forest-light"
           >
-            Enquire About Activities →
+            Enquire About Activities
           </a>
         </div>
       </div>

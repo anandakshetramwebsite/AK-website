@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { BRAND_LOGO, WHATSAPP_PHONE } from "@/lib/constants";
 import { SINGLE_PAGE_NAV } from "@/lib/single-page-nav";
@@ -24,34 +24,12 @@ const clarifyWord = {
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [actionsOpen, setActionsOpen] = useState(false);
-  const actionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    if (!actionsOpen) return;
-
-    const onPointerDown = (e: MouseEvent | TouchEvent) => {
-      if (
-        actionsRef.current &&
-        !actionsRef.current.contains(e.target as Node)
-      ) {
-        setActionsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("touchstart", onPointerDown);
-    return () => {
-      document.removeEventListener("mousedown", onPointerDown);
-      document.removeEventListener("touchstart", onPointerDown);
-    };
-  }, [actionsOpen]);
 
   return (
     <motion.header
@@ -96,7 +74,7 @@ export default function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-white/90 hover:text-mango transition-colors drop-shadow-sm"
+                className="text-sm font-medium text-white/90 transition-colors hover:text-mango drop-shadow-sm"
               >
                 {link.label}
               </a>
@@ -104,51 +82,21 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div ref={actionsRef} className="relative flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setActionsOpen((open) => !open)}
-            aria-expanded={actionsOpen}
-            aria-label={
-              actionsOpen
-                ? "Hide WhatsApp and booking options"
-                : "Show WhatsApp and booking options"
-            }
-            className={`flex items-center justify-center p-1 text-4xl leading-none transition-transform sm:text-5xl ${
-              actionsOpen ? "scale-110" : "hover:scale-110"
-            }`}
+        <div className="flex items-center gap-2">
+          <a
+            href={`https://wa.me/${WHATSAPP_PHONE}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-ivory/40 px-4 py-2 text-center text-sm font-semibold text-ivory transition-all hover:border-mango hover:text-mango"
           >
-            <span aria-hidden>🐄</span>
-          </button>
-
-          <AnimatePresence>
-            {actionsOpen && (
-              <motion.div
-                initial={{ opacity: 0, x: 10, scale: 0.96 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 10, scale: 0.96 }}
-                transition={{ duration: 0.2 }}
-                className="absolute right-0 top-full z-50 mt-2 flex min-w-[11rem] flex-col gap-2 rounded-xl border border-brand-gold/25 bg-forest-green/95 p-2 shadow-xl backdrop-blur-md sm:static sm:mt-0 sm:min-w-0 sm:flex-row sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
-              >
-                <a
-                  href={`https://wa.me/${WHATSAPP_PHONE}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setActionsOpen(false)}
-                  className="rounded-full border border-ivory/40 px-4 py-2 text-center text-sm font-semibold text-ivory transition-all hover:border-mango hover:text-mango sm:py-2"
-                >
-                  WhatsApp
-                </a>
-                <a
-                  href="#programs"
-                  onClick={() => setActionsOpen(false)}
-                  className="rounded-full bg-mango px-5 py-2 text-center text-sm font-semibold text-forest shadow-lg transition-all hover:scale-105"
-                >
-                  Book Now
-                </a>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            WhatsApp
+          </a>
+          <a
+            href="#programs"
+            className="rounded-full bg-mango px-5 py-2 text-center text-sm font-semibold text-forest shadow-lg transition-all hover:scale-105"
+          >
+            Book Now
+          </a>
         </div>
       </nav>
     </motion.header>

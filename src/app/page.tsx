@@ -3,9 +3,9 @@ import Version1Home from "@/components/Version1Home";
 
 export const metadata: Metadata = {
   title:
-    "Ananda Kshethram — Best Agri Tourism & Farm Retreat near Hyderabad | 60 Min from Gachibowli",
+    "Ananda Kshethram — Agri Tourism & Pure Veg Farm Retreat near Hyderabad",
   description:
-    "Farm outings from ₹1,249 · Night stays · School trips from ₹500 · Corporate retreats. Hyderabad's top-rated agri tourism — 60 min from Gachibowli.",
+    "Hyderabad's first agri tourism hub. Family day outings, farm night stays, school trips, corporate retreats, and celebrations. Pure vegetarian. One hour from Gachibowli.",
 };
 
 export default function HomePage() {

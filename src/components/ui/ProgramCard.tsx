@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import type { Program, ProgramPriceTier } from "@/lib/constants";
+import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import { calculateGroupDiscount, WHATSAPP_PHONE } from "@/lib/constants";
 import { useBooking } from "@/context/BookingContext";
 
@@ -99,13 +100,20 @@ export default function ProgramCard({ program, index }: ProgramCardProps) {
               : "h-44"
           }`}
         >
-          <Image
-            src={program.image}
-            alt={program.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+          {program.image ? (
+            <Image
+              src={program.image}
+              alt={program.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+          ) : (
+            <PlaceholderImage
+              label={program.title}
+              className="absolute inset-0 h-full w-full bg-gradient-to-br from-mango/25 via-linen-dark to-forest-green/20"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-midnight-crimson/65 to-transparent" />
 
           {program.packageBadge && (
@@ -224,7 +232,7 @@ export default function ProgramCard({ program, index }: ProgramCardProps) {
                     onClick={(e) => e.stopPropagation()}
                     className="touch-target rounded-full bg-brand-gold px-5 py-2.5 text-xs font-bold text-brand-crimson shadow-md transition-all hover:scale-105 hover:bg-warm-gold"
                   >
-                    {isSchool ? "Plan School Trip →" : "Book via WhatsApp →"}
+                    {isSchool ? "Plan School Trip" : "Book via WhatsApp"}
                   </a>
                 )}
                 <a

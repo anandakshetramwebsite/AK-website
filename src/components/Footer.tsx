@@ -1,198 +1,88 @@
 import Image from "next/image";
-import { BRAND_LOGO, MAPS_URL, YOUTUBE_URL, MANGO_FESTIVAL_FORM } from "@/lib/constants";
-import { SOCIAL_LINKS } from "@/lib/social";
+import { BRAND_LOGO, MAPS_URL, MANGO_FESTIVAL_FORM } from "@/lib/constants";
 import BuiltByCredit from "@/components/BuiltByCredit";
+import FooterSocialIcons from "@/components/FooterSocialIcons";
+
+const EXPLORE_LINKS = [
+  { href: "#experiences", label: "Experiences" },
+  { href: "#activities", label: "Activities" },
+  { href: "#goushala", label: "Goushala" },
+  { href: "#divine-events", label: "Divine Events" },
+  { href: "#dedicated", label: "Family & Night Stay" },
+  { href: "#programs", label: "Packages" },
+  { href: "#school-trust", label: "School Trips" },
+  { href: "#book", label: "Book" },
+  { href: "#faq", label: "FAQ" },
+  { href: MANGO_FESTIVAL_FORM, label: "Mango Festival", external: true },
+  { href: MAPS_URL, label: "Directions", external: true },
+];
 
 export default function Footer() {
   return (
     <footer className="border-t border-brand-gold/20 bg-deep-crimson text-ivory">
-      <div className="container-page py-12 sm:py-16">
-        <div className="grid gap-10 sm:gap-12 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3">
+      <div className="container-page py-8 sm:py-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-6">
+          <div className="sm:col-span-2 lg:col-span-5">
+            <div className="flex items-center gap-2.5">
               <Image
                 src={BRAND_LOGO}
                 alt="Ananda Kshethram"
-                width={52}
-                height={52}
-                className="h-12 w-12 shrink-0 object-contain"
+                width={44}
+                height={44}
+                className="h-10 w-10 shrink-0 object-contain"
               />
-              <h3 className="font-serif text-2xl font-light italic">
+              <h3 className="font-serif text-xl font-light italic">
                 Ananda Kshethram
               </h3>
             </div>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-ivory/75">
+            <p className="mt-2 max-w-sm text-sm leading-snug text-ivory/75">
               Hyderabad&apos;s first agri tourism hub and only pure veg farm
-              retreat — where families, schools, corporates, and communities
-              reconnect with village life, goushala rituals, and meaningful
-              celebrations.
+              retreat — families, schools, corporates, and communities.
             </p>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
-              Quick Links
+          <div className="lg:col-span-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-gold">
+              Explore
             </h4>
-            <ul className="mt-4 space-y-2 text-sm text-ivory/70">
-              <li>
-                <a
-                  href="#experiences"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Core Experiences
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#activities"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Farm Activities
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#dedicated"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Family · Corporate · School · Night Stay
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#goushala"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Goushala
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#divine-events"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Divine Events Venue
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#programs"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Packages &amp; Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#activities"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  All Activities
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#school-trust"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  School Partnerships
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href={MANGO_FESTIVAL_FORM}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Mango Festival Registration
-                </a>
-              </li>
-              <li>
-                <a
-                  href={YOUTUBE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  YouTube Channel
-                </a>
-              </li>
-              <li>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Get Directions
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL_LINKS.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL_LINKS.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a
-                  href={SOCIAL_LINKS.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  Facebook
-                </a>
-              </li>
+            <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm text-ivory/70">
+              {EXPLORE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    className="transition-colors hover:text-brand-gold"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-gold">
               Contact
             </h4>
-            <ul className="mt-4 space-y-2 text-sm text-ivory/70">
-              <li>
-                <a
-                  href="tel:+917799900060"
-                  className="transition-colors hover:text-brand-gold"
-                >
-                  +91 77999 00060
-                </a>
-              </li>
-            </ul>
+            <a
+              href="tel:+917799900060"
+              className="mt-3 inline-block text-sm font-medium text-ivory transition-colors hover:text-brand-gold"
+            >
+              +91 77999 00060
+            </a>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-brand-gold">
+              Follow Us
+            </p>
+            <FooterSocialIcons className="mt-2" />
           </div>
         </div>
 
-        <div className="mt-12 border-t border-ivory/10 pt-8 text-center">
-          <p className="text-sm text-ivory/60">
+        <div className="mt-6 flex flex-col items-center justify-between gap-3 border-t border-ivory/10 pt-5 text-center sm:flex-row sm:text-left">
+          <p className="text-xs text-ivory/55">
             © {new Date().getFullYear()} Ananda Kshethram. All rights reserved.
           </p>
-        </div>
-
-        <div className="mt-6 pb-2 pt-2 text-center">
           <BuiltByCredit tone="dark" />
         </div>
       </div>
