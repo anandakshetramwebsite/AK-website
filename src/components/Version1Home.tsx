@@ -16,6 +16,8 @@ import JoinAnandaBand from "@/components/JoinAnandaBand";
 import FaqSection from "@/components/FaqSection";
 import FinalInvitation from "@/components/FinalInvitation";
 import Footer from "@/components/Footer";
+import FallingMangoes from "@/components/FallingMangoes";
+import ShareMangoFloater from "@/components/ShareMangoFloater";
 import WhatsAppFloater from "@/components/WhatsAppFloater";
 import { BookingProvider } from "@/context/BookingContext";
 import { getSiteContent } from "@/lib/cms/storage";
@@ -35,6 +37,8 @@ export default async function Version1Home() {
 
   return (
     <BookingProvider>
+      <FallingMangoes />
+      <ShareMangoFloater />
       <WhatsAppFloater />
       <Navbar />
       <main className="relative overflow-x-clip">
