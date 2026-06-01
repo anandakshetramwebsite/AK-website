@@ -188,7 +188,7 @@ export const v3SchoolBadges = [
   "Johnson Grammar",
   "Chirec Public School",
   "Bharatiya Vidya Bhavan",
-  "+ 494 more schools",
+  "+ 94 more schools",
 ];
 
 export const v3SchoolTestimonials = [
