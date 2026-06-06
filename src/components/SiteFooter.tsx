@@ -1,14 +1,16 @@
+import Link from "next/link";
 import { getSiteContent } from "@/lib/cms/storage";
 import { FOOTER_NAV } from "@/lib/single-page-nav";
 import BuiltByCredit from "@/components/BuiltByCredit";
 import FooterSocialIcons from "@/components/FooterSocialIcons";
+import { POLICY_LINKS } from "@/lib/policies";
 
 export default async function SiteFooter() {
   const content = await getSiteContent();
 
   return (
     <footer className="bg-midnight-crimson py-14 text-gold-mist">
-      <div className="brand-container grid gap-8 md:grid-cols-3">
+      <div className="brand-container grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-serif text-3xl text-brand-gold">{content.footer.tagline}</h3>
           <p className="mt-3 max-w-sm text-sm text-gold-mist/80">
@@ -37,6 +39,18 @@ export default async function SiteFooter() {
           </a>
           <p className="mt-5 text-xs uppercase tracking-[0.2em] text-brand-gold">Follow Us</p>
           <FooterSocialIcons className="mt-3" />
+        </div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.2em] text-brand-gold">Policies</p>
+          <ul className="mt-3 space-y-2">
+            {POLICY_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="text-sm hover:text-warm-gold">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <div className="brand-container mt-10 border-t border-gold-mist/15 pt-5 text-center">
