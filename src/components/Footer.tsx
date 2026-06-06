@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BRAND_LOGO, MAPS_URL } from "@/lib/constants";
 import BuiltByCredit from "@/components/BuiltByCredit";
 import FooterSocialIcons from "@/components/FooterSocialIcons";
-import { POLICY_LINKS } from "@/lib/policies";
+import { LEGAL_PAGE_LINKS } from "@/lib/policies";
 
 const EXPLORE_LINKS = [
   { href: "#experiences", label: "Experiences" },
@@ -82,10 +82,10 @@ export default function Footer() {
 
         <div className="mt-6 border-t border-ivory/10 pt-5">
           <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-gold">
-            Policies
+            Information
           </h4>
           <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-ivory/70">
-            {POLICY_LINKS.map((link) => (
+            {LEGAL_PAGE_LINKS.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="transition-colors hover:text-brand-gold">
                   {link.label}

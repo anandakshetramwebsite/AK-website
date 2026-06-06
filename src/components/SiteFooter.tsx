@@ -3,7 +3,7 @@ import { getSiteContent } from "@/lib/cms/storage";
 import { FOOTER_NAV } from "@/lib/single-page-nav";
 import BuiltByCredit from "@/components/BuiltByCredit";
 import FooterSocialIcons from "@/components/FooterSocialIcons";
-import { POLICY_LINKS } from "@/lib/policies";
+import { LEGAL_PAGE_LINKS } from "@/lib/policies";
 
 export default async function SiteFooter() {
   const content = await getSiteContent();
@@ -41,9 +41,9 @@ export default async function SiteFooter() {
           <FooterSocialIcons className="mt-3" />
         </div>
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-brand-gold">Policies</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-brand-gold">Information</p>
           <ul className="mt-3 space-y-2">
-            {POLICY_LINKS.map((link) => (
+            {LEGAL_PAGE_LINKS.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="text-sm hover:text-warm-gold">
                   {link.label}
